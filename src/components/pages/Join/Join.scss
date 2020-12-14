@@ -1,5 +1,6 @@
 //linking dependencies
 @use '../../styles/mixin' as *;
+@use '../../styles/variable' as *;
 
 .join {
     display: flex;
@@ -20,7 +21,7 @@
     flex: 1;
 
     &--first {
-        border-right: 2px gray solid;
+        border-right: 2px $light-red solid;
     }
 
     &__text {
@@ -32,10 +33,10 @@
         margin-bottom: 1rem;
         border: none;
         outline: none;
-        background-color: rgba(0,0,0, 0.1);
+        background-color: rgba(0,0,0, 0.05);
 
         &:focus {
-            border: 1px #d60000 solid;
+            border: 1px $dark-red solid;
         }
     }
 

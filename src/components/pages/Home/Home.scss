@@ -33,11 +33,26 @@
 
 .btn-fire {
     height: 3rem;
-    width: 120px;
     text-transform: uppercase;
     border-radius: 8px;
     background-color: gray;
     color: white;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
 
     @include background-transition;
+}
+
+.icon-join {
+    margin-left: 0.8rem;
+    height: 2rem;
+    fill: white;
+}
+
+.home-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }

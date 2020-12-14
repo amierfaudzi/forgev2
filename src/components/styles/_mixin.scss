@@ -34,6 +34,6 @@
     transition: background-color 0.5s linear;
         
     &:hover {
-        background-color: #d60000;
+        background-color: $dark-red;
     }
 }

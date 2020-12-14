@@ -6,6 +6,7 @@ import { UserContext } from '../../../context/UserContext';
 import { ReactComponent as Youtube } from '../../../assets/icons/icons8-youtube-squared.svg';
 import { ReactComponent as Map } from '../../../assets/icons/icons8-waypoint-map.svg';
 import { ReactComponent as Loading } from '../../../assets/icons/Eclipse-1s-200px.svg';
+import { ReactComponent as Join } from '../../../assets/icons/next.svg';
 
 export default function Home() {
 
@@ -17,7 +18,7 @@ export default function Home() {
         axios.defaults.headers.common['Authorization'] = token;
         axios.get('/user').then(res=>{
           console.log(res);
-          handleAuth(user = res.data)
+          handleAuth(user = res.data);
         })
         .catch(err=>console.log(err))
       }
@@ -30,7 +31,15 @@ export default function Home() {
     return (
         <div className="main">
           
-          {user ? <User/>: 
+          {user ?
+          <div className="home-user">
+             <User/>
+             <div>
+               <h2>This is where the user's previously watched video would go</h2>
+             </div>
+          </div>
+          
+           : 
           <div className="welcome">
             <div className="welcome__row">
               <Map/>
@@ -41,7 +50,7 @@ export default function Home() {
               <Youtube />
             </div>
             <div className="welcome__row welcome__row--final">
-              <button className="btn-fire" onClick={handleJoin}>Join Now</button>
+              <button className="btn-fire" onClick={handleJoin}>Join Now <Join className="icon-join"/> </button>
             </div>
             
           </div>

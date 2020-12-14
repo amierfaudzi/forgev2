@@ -5,6 +5,7 @@ import { UserContext } from '../../../context/UserContext';
 import Unauthorized from '../Unauthorized/Unauthorized';
 import SkillGenerator from '../../SkillGenerator/SkillGenerator';
 import { Link } from 'react-router-dom';
+import './Kiln.scss';
 
 export default function Kiln() {
 
@@ -15,7 +16,7 @@ export default function Kiln() {
     if(user){
         return (
 
-            <div className="main">
+            <div className="main main-kiln">
                 <h1>"Keep the fire burning and strike the metal when it is hot"</h1>
     
                 <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
@@ -30,12 +31,6 @@ export default function Kiln() {
                     </div>
                     </TabPanel>
                     <TabPanel>
-                    <div>
-                        <p>How to git gud</p>
-                        <p>I want to git gud and this series is my best bet</p>
-                        <button>Go</button>
-                        <button>Delete</button>
-                    </div>
                     <div>
                         <p>How to git gud</p>
                         <p>I want to git gud and this series is my best bet</p>
