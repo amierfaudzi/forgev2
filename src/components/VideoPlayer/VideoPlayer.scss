@@ -1,0 +1,10 @@
+.video-player {
+    flex: 1;
+    border: 2px orange solid;
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

@@ -1,0 +1,18 @@
+.videoSearchList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.tray {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    
+}
+
+.icon {
+    height: 3rem;
+    width: 3rem;
+}

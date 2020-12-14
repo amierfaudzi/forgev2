@@ -28,3 +28,12 @@
         width: 1080px;
     }
 }
+
+//background color transition
+@mixin background-transition {
+    transition: background-color 0.5s linear;
+        
+    &:hover {
+        background-color: #d60000;
+    }
+}

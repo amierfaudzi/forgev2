@@ -1,0 +1,12 @@
+.list {
+    border: 1px red solid;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 320px;
+
+    &__title {
+        font-weight: bold;
+    }
+}

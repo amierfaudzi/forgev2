@@ -1,0 +1,54 @@
+//linking dependencies
+@use '../styles/mixin' as *;
+@use '../styles/variable' as *;
+
+.nav{
+    height: 5rem;
+    background: black;
+    display: flex;
+    align-items: center;
+
+    &__sub{
+        display: flex;
+    }
+
+    &__wrapper {
+        @include maximum-content-width;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    &__link {
+        height: 40px;
+        color: white;
+        padding: 0 1rem;
+        border-right: 2px $dark-red solid;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    @include background-transition;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+.btn-nav {
+    background-color: gray;
+    color: white;
+    height: 40px;
+    border-radius: 6px;
+}

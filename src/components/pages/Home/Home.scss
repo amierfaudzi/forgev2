@@ -1,0 +1,43 @@
+//linking dependencies
+@use '../../styles/mixin' as *;
+@use '../../styles/variable' as *;
+
+.main {
+    margin: 0 auto;
+    @include maximum-content-width;
+    height: 100%;
+}
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    &__row {
+        flex-grow: 1;
+        display: flex;
+        border-bottom: 1px gray solid;
+        align-items: center;
+        padding: 3rem;
+
+        &--middle {
+            justify-content: flex-end;
+        }
+
+        &--final {
+            justify-content: center;
+        }
+    }
+}
+
+.btn-fire {
+    height: 3rem;
+    width: 120px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    background-color: gray;
+    color: white;
+
+    @include background-transition;
+}

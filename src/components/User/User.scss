@@ -1,0 +1,15 @@
+//linking dependencies
+@use '../styles/mixin' as *;
+@use '../styles/variable' as *;
+
+.user {
+    border: 2px red solid;
+    padding: 1rem 0;
+    border-radius: 14px;
+    width: 200px;
+    height: 300px;
+
+    &__image {
+        border-radius: 14px;
+    }
+}
