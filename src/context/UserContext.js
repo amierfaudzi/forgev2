@@ -5,7 +5,7 @@ export const UserContext = createContext();
 export default class UserContextProvider extends Component {
 
     state = {
-        user: null
+        user: null,
     }
 
     handleAuth = (profile, logout=false) => {
@@ -19,7 +19,7 @@ export default class UserContextProvider extends Component {
 
     render() {
         return (
-            <UserContext.Provider value={{...this.state, handleAuth: this.handleAuth}}>
+            <UserContext.Provider value={{...this.state, handleAuth: this.handleAuth }}>
                 {this.props.children}
             </UserContext.Provider>
         )

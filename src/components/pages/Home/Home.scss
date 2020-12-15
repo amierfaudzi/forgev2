@@ -6,6 +6,7 @@
     margin: 0 auto;
     @include maximum-content-width;
     height: 100%;
+    border: 1px solid gray;
 }
 
 .welcome {

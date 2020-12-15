@@ -1,3 +1,7 @@
+//linking dependencies
+@use '../styles/mixin' as *;
+@use '../styles/variable' as *;
+
 .videoSearchList {
     display: flex;
     flex-wrap: wrap;
@@ -9,10 +13,58 @@
     justify-content: space-between;
     width: 100%;
 
-    
+    &--first {
+        justify-content: flex-end;
+    }
 }
 
 .icon {
     height: 3rem;
     width: 3rem;
+    cursor: pointer;
+}
+
+.form {
+    &--skill-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center
+    }
+
+    &-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+
+    &__field {
+        @include input-field-style;
+    }
+
+    &__text {
+        @include text-input-style;
+    }
+
+    &__label {
+        margin-bottom: 0.5rem;
+    }
+
+    &--youtube-search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        border: 4px solid black;
+        border-radius: 12px;
+        width: 50%;
+    }
+
+    &__button {
+        @include form-button;
+    }
+}
+
+.search-box {
+    margin-left: 1rem;
 }

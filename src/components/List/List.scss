@@ -1,12 +1,54 @@
+//linking dependencies
+@use '../styles/mixin' as *;
+@use '../styles/variable' as *;
+
 .list {
-    border: 1px red solid;
+    border: 1px $dark-red solid;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
     width: 320px;
+    box-shadow: 2px 2px 2px 2px #888888;
 
     &__title {
         font-weight: bold;
     }
+
+    &__image {
+        border-radius: 8px 8px 0 0;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    &__info {
+        padding: 1rem;
+    }
+
+    &__button {
+        @include form-button;
+        width: 288px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 2px 2px 2px 2px black;
+    }
+
+    &__cta {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+}
+
+.icon-anvil {
+    height: 2rem;
+    width: 2rem;
+    fill: white;
+    margin-right: 0.5rem;
 }

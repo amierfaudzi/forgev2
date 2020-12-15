@@ -10,9 +10,14 @@ export default function User() {
         <>
         {user ?
         <section className="user">
-            <img src={user.credentials.imageUrl} alt="user-profile" className="user__image"/>
-            <p>{user.credentials.name}</p>
-            <p>{user.credentials.level}</p>
+            <div className="user__profile">
+                <img src={user.credentials.imageUrl} alt="user-profile" className="user__image"/>
+            </div>
+
+            <div className="user__info">
+                <p>Name: {user.credentials.name}</p>
+                <p>Level: {user.credentials.level}</p>
+            </div>
         </section>: ""}
         </>
     )

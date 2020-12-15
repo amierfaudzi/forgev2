@@ -37,3 +37,38 @@
         background-color: $dark-red;
     }
 }
+
+
+@mixin text-input-style {
+    width: 320px;
+    box-sizing: border-box;
+    height: 3rem;
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: none;
+    outline: none;
+    background-color: rgba(0,0,0, 0.05);
+    &:focus {
+        border: 1px $dark-red solid;
+    }
+}
+
+@mixin input-field-style {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+}
+
+@mixin form-button {
+    width: 320px;
+    height: 2rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    background-color: gray;
+    color: white;
+    border: none;
+    outline: none;
+
+    @include background-transition;
+}

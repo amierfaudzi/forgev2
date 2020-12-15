@@ -1,3 +1,5 @@
 .main-kiln {
     border: 1px solid grey;
+    min-height: calc(100%-4rem);
+    overflow-y: scroll;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import './List.scss';
-
+import { ReactComponent as Anvil } from '../../assets/icons/icons8-metal.svg'
 export default function List({list, skill, setSkill}) {
 
     //construct the skill here
@@ -21,12 +21,14 @@ export default function List({list, skill, setSkill}) {
 
         <div className="list">
             <img src={skillInfo.thumbnailUrl} alt="" className="list__image"/>
-            <div className="list__info">
-                <p>{skillInfo.title} by {skillInfo.channelTitle}</p>
-                <p>{skillInfo.description}</p>
-                <div>
-                    <button onClick={handleClick}>Add to kiln</button>
+            <div className="list__body">
+                <div className="list__info">
+                    <p className="list__title">{skillInfo.title} by {skillInfo.channelTitle}</p>
+                    <p>{skillInfo.description}</p>
                 </div>
+            <div className="list__cta">
+                <button className="list__button" onClick={handleClick}><Anvil className="icon-anvil"/> Add to kiln </button>
+            </div>
             </div>
         </div>
 

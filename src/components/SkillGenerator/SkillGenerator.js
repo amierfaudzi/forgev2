@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import Stepper from 'react-stepper-horizontal';
 import axios from 'axios';
 import List from '../List/List';
@@ -8,6 +8,7 @@ import './SkillGenerator.scss';
 import { UserContext } from '../../context/UserContext';
 import { ReactComponent as Next } from '../../assets/icons/icons8-chevron-right.svg';
 import { ReactComponent as Prev } from '../../assets/icons/icons8-chevron-left.svg';
+import { ReactComponent as Youtube } from '../../assets/icons/icons8-youtube-squared.svg'
 
 const token = localStorage.FBIdToken;
 
@@ -42,7 +43,7 @@ const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
 
     axios({
       method: 'get',
-      url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=playlist&order=viewCount&relevanceLanguage=en&maxResults=25&q=${query}&key=${process.env.REACT_APP_API_KEY}`,
+      url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=playlist&order=viewCount&relevanceLanguage=en&maxResults=24&q=${query}&key=${process.env.REACT_APP_API_KEY}`,
     }) 
     .then(res=>{
       handleSearchPlaylist(res.data.items);
@@ -73,19 +74,20 @@ const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
 
         {currentPage === 1 && (
           <form onSubmit={handleSkillInfo}>
-            <div className="tray">
-              <Next type="submit" onClick={next} className="icon icon--first"/>
+            <div className="tray tray--first">
+              <Next onClick={next} className="icon"/>
             </div>
             
-            <div style={{ display:'flex', flexDirection:'column'}}>
-              <div>
-                <label htmlFor="skillName">Skill Name</label>
-                <input type="text" name="skillName" id="skillName" placeholder="skill name" className="skill__title"/>
+            <div className="form form--skill-info">
+              <div className="form__field">
+                <label htmlFor="skillName" className="form__label">Skill Name</label>
+                <input type="text" name="skillName" id="skillName" placeholder="skill name" className="form__text skill__title"/>
               </div>
-              <div>
-                <label htmlFor="skillDescription">Skill Description</label>
-                <textarea name="skillDescription" id="skillDescription" placeholder="skill description" className="skill__description"></textarea>
+              <div className="form__field">
+                <label htmlFor="skillDescription" className="form__label">Skill Description</label>
+                <textarea name="skillDescription" id="skillDescription" placeholder="skill description" className="form__text skill__description"></textarea>
               </div>
+              <button type="submit" className="form__button">Continue</button>
             </div>
           </form>
         )}
@@ -96,11 +98,19 @@ const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
               <Prev onClick={prev} className="icon"/>
               <Next onClick={next} className="icon"/>
             </div>
-            <form onSubmit={handleSkillSearch}>
-                <input type="text" name="searchInput"/>
-                <button type="submit">Search</button>
-                {/**Generate a list with a button that can let me add the video here*/}
-            </form>
+            <div className="form-wrapper">
+              <form onSubmit={handleSkillSearch} className="form form--youtube-search">
+                <Youtube/>
+                <div className="search-box">
+                  <div className="form__field">
+                    <label htmlFor="searchInput" className="form__label">Search for Playlists on Youtube</label>
+                    <input type="text" name="searchInput" className="form__text"/>
+                  </div>
+                  
+                  <button type="submit" className="form__button">Search</button>
+                </div>
+              </form>
+            </div>
             <div className="videoSearchList">
             {searchedPlaylist ? 
             <>
