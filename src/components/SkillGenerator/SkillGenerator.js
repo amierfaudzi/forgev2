@@ -29,7 +29,6 @@ const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
       skillDescription: e.target.skillDescription.value
     });
     e.target.reset();
-      console.log("This is the skill>>> ", skill);
       setCurrentPage((prev) => prev + 1)
   }
 
@@ -37,7 +36,7 @@ const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
     e.preventDefault();
     const query = e.target.searchInput.value;
     axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=playlist&order=viewCount&relevanceLanguage=en&maxResults=24&q=${query}&key=${process.env.REACT_APP_API_KEY}`,
-    {  transformRequest: (data, headers) => {
+    { transformRequest: (data, headers) => {
       delete headers.common['Authorization'];
   }})
     .then(res=>{
@@ -49,7 +48,6 @@ const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
   const handleGenerateSkill = (e) => {
     e.preventDefault();
     axios.defaults.headers.common['Authorization'] = token;
-    console.log("this is the token" ,token)
     axios({
       method: 'post',
       url: '/skills',

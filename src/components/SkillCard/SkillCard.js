@@ -5,12 +5,12 @@ import { PlaylistContext } from '../../context/PlaylistContext';
 
 export default function SkillCard({skill}) {
 
-    //console.log(skill)
-    const token = localStorage.FBIdToken;
     const { handleAddedPlaylist, addedPlaylist} = useContext(PlaylistContext)
 
     useEffect(() => {
-        axios.get(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&maxResults=50&key=${process.env.REACT_APP_API_KEY}`)
+        axios.get(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&maxResults=50&key=${process.env.REACT_APP_API_KEY}`,{ transformRequest: (data, headers) => {
+            delete headers.common['Authorization'];
+        }})
         .then(res=>{
             console.log("this is the response from a playlislist call",res.data)
             let newSkill = {
@@ -29,16 +29,8 @@ export default function SkillCard({skill}) {
                 video.notes = []
                 newSkill.video.push(video)
             });
-            //onsole.log(newSkill)
             handleAddedPlaylist(newSkill);
-            return newSkill
         })
-        // .then(skill=> {
-        //     axios.defaults.headers.common['Authorization'] = token;
-        //     axios.post('/skills', {skill})
-        //     .then(res=>console.log(res))
-        //     .catch(err=>console.log(err))
-        // })
         .catch(err=>console.log(err));
     
     }, [])

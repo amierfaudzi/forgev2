@@ -8,7 +8,6 @@ import { ReactComponent as Map } from '../../../assets/icons/icons8-waypoint-map
 import { ReactComponent as Loading } from '../../../assets/icons/Eclipse-1s-200px.svg';
 import { ReactComponent as Join } from '../../../assets/icons/next.svg';
 import jwtDecode from 'jwt-decode';
-import Search from '../../Search/Search';
 
 export default function Home() {
 

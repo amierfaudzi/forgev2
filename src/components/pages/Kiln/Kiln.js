@@ -6,14 +6,20 @@ import Unauthorized from '../Unauthorized/Unauthorized';
 import SkillGenerator from '../../SkillGenerator/SkillGenerator';
 import { Link } from 'react-router-dom';
 import './Kiln.scss';
+import axios from 'axios';
 
 export default function Kiln() {
 
     const { user } = useContext(UserContext);
     let [ skill, setSkill] = useState([]);
     const [tabIndex, setTabIndex] = useState(0);
+
     useEffect(() => {
-        //call the current skill from the user profile
+    //call the current skill from the user profile
+    axios.get('/skills')
+    .then(res=>console.log(res))
+    .catch(err=>console.log(err))
+    
     }, [])
 
     if(user){
@@ -34,13 +40,12 @@ export default function Kiln() {
                     </div>
                     </TabPanel>
                     <TabPanel>
-                    <div>
+                    <div className="skill-list">
                         <p>How to git gud</p>
                         <p>I want to git gud and this series is my best bet</p>
                         <Link to='/learn'>
                             <button>Learn</button>
                         </Link>
-                        <button>Delete</button>
                     </div>
                     </TabPanel>
                 </Tabs>
