@@ -7,22 +7,27 @@ import SkillGenerator from '../../SkillGenerator/SkillGenerator';
 import { Link } from 'react-router-dom';
 import './Kiln.scss';
 import axios from 'axios';
+import SkillList from '../../SkillList/SkillList';
 
 export default function Kiln() {
 
-    const { user } = useContext(UserContext);
+    const { handleSkill, userSkills } = useContext(UserContext);
     let [ skill, setSkill] = useState([]);
     const [tabIndex, setTabIndex] = useState(0);
+    const token = localStorage.FBIdToken;
 
     useEffect(() => {
     //call the current skill from the user profile
     axios.get('/skills')
-    .then(res=>console.log(res))
+    .then(res=>{
+        console.log("this is the skill", res.data);
+        handleSkill(res.data);
+    })
     .catch(err=>console.log(err))
-    
+
     }, [])
 
-    if(user){
+    if(token){
         return (
 
             <div className="main main-kiln">
@@ -40,13 +45,9 @@ export default function Kiln() {
                     </div>
                     </TabPanel>
                     <TabPanel>
-                    <div className="skill-list">
-                        <p>How to git gud</p>
-                        <p>I want to git gud and this series is my best bet</p>
-                        <Link to='/learn'>
-                            <button>Learn</button>
-                        </Link>
-                    </div>
+                    {userSkills.map(skill=> {
+                        return <SkillList key={skill.playlistId} skill={skill}/>
+                    })}
                     </TabPanel>
                 </Tabs>
     

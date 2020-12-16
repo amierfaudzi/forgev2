@@ -6,6 +6,7 @@ export default class UserContextProvider extends Component {
 
     state = {
         user: null,
+        userSkills: null
     }
 
     handleAuth = (profile, logout=false) => {
@@ -14,17 +15,19 @@ export default class UserContextProvider extends Component {
                 user: profile
             })
         } 
-        console.log("the user is ", this.state.user)
+    }
+
+    handleSkill = (skills) => {
+        this.setState({
+            userSkills: skills
+        })
     }
 
     render() {
         return (
-            <UserContext.Provider value={{...this.state, handleAuth: this.handleAuth }}>
+            <UserContext.Provider value={{...this.state, handleAuth: this.handleAuth, handleSkill: this.handleSkill }}>
                 {this.props.children}
             </UserContext.Provider>
         )
     }
 }
-
-//nothing changed here, we still send in a state and also handle auth to reset tje state but call it userReducer
-//context is to provide a 

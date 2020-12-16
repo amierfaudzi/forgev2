@@ -44,7 +44,7 @@ export default function Home() {
             Fetching Profile...
             <Loading/>
           </div>
-          : (user) ? 
+          : (token) ? 
           <div className="home-user">
             <User />
           </div>

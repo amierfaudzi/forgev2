@@ -5,7 +5,9 @@ export const PlaylistContext = createContext();
 export default class PlaylistContextProvider extends Component {
     state = {
         searchedPlaylist: null,
-        addedPlaylist: null
+        addedPlaylist: null,
+        currentVideo: null,
+        activePlaylist: null
     }
 
     handleSearchPlaylist = (playlist) => {
@@ -22,9 +24,26 @@ export default class PlaylistContextProvider extends Component {
         console.log(this.state)
     }
 
+    handleActivePlaylist = (playlist) => {
+        this.setState({
+            activePlaylist: playlist
+        })
+    }
+
+    handleCurrentVideo = (video) => {
+        this.setState({
+            currentVideo: video
+            //add position here
+        })
+    }
+
     render() {
         return (
-            <PlaylistContext.Provider value={{...this.state, handleSearchPlaylist: this.handleSearchPlaylist, handleAddedPlaylist: this.handleAddedPlaylist}}>
+            <PlaylistContext.Provider value={{...this.state, 
+            handleSearchPlaylist: this.handleSearchPlaylist, 
+            handleAddedPlaylist: this.handleAddedPlaylist,
+            handleActivePlaylist: this.handleActivePlaylist,
+            handleCurrentVideo: this.handleCurrentVideo}}>
                 {this.props.children}
             </PlaylistContext.Provider>
         )

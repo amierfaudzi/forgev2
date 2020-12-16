@@ -5,14 +5,15 @@ import { PlaylistContext } from '../../context/PlaylistContext';
 
 export default function SkillCard({skill}) {
 
-    const { handleAddedPlaylist, addedPlaylist} = useContext(PlaylistContext)
+    const { handleAddedPlaylist, addedPlaylist} = useContext(PlaylistContext);
+    console.log(skill);
 
     useEffect(() => {
-        axios.get(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&maxResults=50&key=${process.env.REACT_APP_API_KEY}`,{ transformRequest: (data, headers) => {
+        axios.get(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${skill.playlistId}&maxResults=50&key=${process.env.REACT_APP_API_KEY}`,{ transformRequest: (data, headers) => {
             delete headers.common['Authorization'];
         }})
         .then(res=>{
-            console.log("this is the response from a playlislist call",res.data)
+            console.log("this is the response from a playlislist call", res.data)
             let newSkill = {
                 ...skill,
                 nextPageToken: res.data.nextPageToken,
@@ -51,11 +52,3 @@ export default function SkillCard({skill}) {
         </div>
     )
 }
-
-
-//make the call to the ytPlaylist here and send all the video info
-//when a user click on generate skill add it to the db
-//build the skill here and send it to the global context
-//then send it when generating skill
-//add mmroe info to skill
-//page token etx

@@ -1,0 +1,57 @@
+//linking dependencies
+@use '../styles/mixin' as *;
+@use '../styles/variable' as *;
+
+.skillList {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1.5rem 0.5rem;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+
+    &__info {
+        display: flex;
+        flex: 1;
+        justify-content: space-around;
+
+        &--details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            flex: 2;
+            padding: 1rem;
+            border-right: 1px solid $light-red;
+
+            p {
+                margin: 0;
+            }
+        }
+
+        &--summary {
+            flex: 1;
+            padding: 1rem;
+            border-right: 1px solid $light-red;
+        }
+    }
+
+    &__content {
+        font-weight: bold;
+    }
+
+    &__image {
+        display: block;
+    }
+
+    &__icon {
+        transition: fill 0.5s linear;
+        height: 100px;
+        width: 100px;
+        margin: 0 1rem;
+
+        &:hover {
+            fill: $dark-red;
+        }
+    }
+}

@@ -54,6 +54,8 @@ const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
       data: {...addedPlaylist}})
     .then(res=>console.log(res))
     .catch(err=>console.log(err))
+    
+    handleSearchPlaylist(null);
 
     setTabIndex(1);
   };

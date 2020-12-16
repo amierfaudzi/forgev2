@@ -8,7 +8,7 @@ import axios from 'axios';
 export default function Navigation() {
 
     const history = useHistory();
-
+    const token = localStorage.FBIdToken;
     const { user, handleAuth } = useContext(UserContext);
 
     const handleLogout = () => {
