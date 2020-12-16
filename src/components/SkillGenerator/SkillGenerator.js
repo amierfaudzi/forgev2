@@ -5,17 +5,15 @@ import List from '../List/List';
 import { PlaylistContext } from '../../context/PlaylistContext';
 import SkillCard from '../SkillCard/SkillCard';
 import './SkillGenerator.scss';
-import { UserContext } from '../../context/UserContext';
 import { ReactComponent as Next } from '../../assets/icons/icons8-chevron-right.svg';
 import { ReactComponent as Prev } from '../../assets/icons/icons8-chevron-left.svg';
 import { ReactComponent as Youtube } from '../../assets/icons/icons8-youtube-squared.svg'
-
-const token = localStorage.FBIdToken;
+import { ReactComponent as Plus } from '../../assets/icons/icons8-plus-math.svg'
 
 const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
 
   const { searchedPlaylist, handleSearchPlaylist, addedPlaylist } = useContext(PlaylistContext);
-
+  const token = localStorage.FBIdToken;
   const [currentPage, setCurrentPage] = useState(1);
 
   const sections = [
@@ -38,13 +36,10 @@ const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
   const handleSkillSearch = (e) => {
     e.preventDefault();
     const query = e.target.searchInput.value;
-
-    axios.defaults.headers.common['Authorization'] = token;
-
-    axios({
-      method: 'get',
-      url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=playlist&order=viewCount&relevanceLanguage=en&maxResults=24&q=${query}&key=${process.env.REACT_APP_API_KEY}`,
-    }) 
+    axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=playlist&order=viewCount&relevanceLanguage=en&maxResults=24&q=${query}&key=${process.env.REACT_APP_API_KEY}`,
+    {  transformRequest: (data, headers) => {
+      delete headers.common['Authorization'];
+  }})
     .then(res=>{
       handleSearchPlaylist(res.data.items);
     })
@@ -53,7 +48,15 @@ const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
 
   const handleGenerateSkill = (e) => {
     e.preventDefault();
-    //axios call to the skill route
+    axios.defaults.headers.common['Authorization'] = token;
+    console.log("this is the token" ,token)
+    axios({
+      method: 'post',
+      url: '/skills',
+      data: {...addedPlaylist}})
+    .then(res=>console.log(res))
+    .catch(err=>console.log(err))
+
     setTabIndex(1);
   };
 
@@ -128,8 +131,8 @@ const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
             <div className="tray">
               <Prev onClick={prev} className="icon"/>
               {skill.playlistId ?  
-              <button type='submit'>Generate</button> :
-              <button disabled type='submit'>Generate</button> }
+              <button type='submit' className="generate-button">Generate <Plus className="icon-plus icon-plus--disabled"/></button> :
+              <button disabled type='submit' className="generate-button">Generate<Plus className="icon-plus icon--active"/></button> }
             </div>
             <h3>Skill Summary</h3>
             {skill.playlistId ? <SkillCard skill={skill}/> : "Please select a playlist first!"}

@@ -1,5 +1,5 @@
 .main-learn {
-    flex: 1;
+    flex-grow: 1;
 
     &__title {
         height: 3rem;
@@ -12,5 +12,4 @@
 .content {
     display: flex;
     justify-content: space-between;
-    border: 2px goldenrod solid;
 }

@@ -1,12 +1,12 @@
 .note {
-    border: gold 2px solid;
     width: 35vw;
-
-    &__input {
-        border: 2px salmon solid;
-    }
 }
 
-.ql-container {
-    min-height: 60vh;
+.quill {
+    height: 640px;
 }
+
+.ql-editor {
+    overflow-y: scroll;
+    resize: vertical;
+  }

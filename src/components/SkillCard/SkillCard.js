@@ -5,17 +5,42 @@ import { PlaylistContext } from '../../context/PlaylistContext';
 
 export default function SkillCard({skill}) {
 
-    console.log(skill)
-
-    const { addedPlaylist, handleAddedPlaylist} = useContext(PlaylistContext)
+    //console.log(skill)
+    const token = localStorage.FBIdToken;
+    const { handleAddedPlaylist, addedPlaylist} = useContext(PlaylistContext)
 
     useEffect(() => {
         axios.get(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&maxResults=50&key=${process.env.REACT_APP_API_KEY}`)
         .then(res=>{
-            console.log(res.data)
-            handleAddedPlaylist(res.data)
+            console.log("this is the response from a playlislist call",res.data)
+            let newSkill = {
+                ...skill,
+                nextPageToken: res.data.nextPageToken,
+                totalVideos: res.data.pageInfo.totalResults,
+                video: []
+            }
+            res.data.items.map(data=> {
+                let video = {};
+                video.videoId = data.snippet.resourceId.videoId;
+                video.position = data.snippet.position;
+                video.title = data.snippet.title;
+                video.playlistId = data.snippet.playlistId;
+                video.thumbnail = data.snippet.thumbnails.medium.url;
+                video.notes = []
+                newSkill.video.push(video)
+            });
+            //onsole.log(newSkill)
+            handleAddedPlaylist(newSkill);
+            return newSkill
         })
-        .catch(err=>console.log(err))
+        // .then(skill=> {
+        //     axios.defaults.headers.common['Authorization'] = token;
+        //     axios.post('/skills', {skill})
+        //     .then(res=>console.log(res))
+        //     .catch(err=>console.log(err))
+        // })
+        .catch(err=>console.log(err));
+    
     }, [])
 
     return (
@@ -41,4 +66,4 @@ export default function SkillCard({skill}) {
 //build the skill here and send it to the global context
 //then send it when generating skill
 //add mmroe info to skill
-//page token etxx
+//page token etx

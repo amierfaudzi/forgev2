@@ -7,13 +7,22 @@ import './Search.scss'
 export default function Search() {
 
     const { searchedPlaylist, handleSearchPlaylist } =useContext(PlaylistContext);
+    const token = localStorage.FBIdToken;
 
     const handleSearch = (event) => {
         event.preventDefault();
         const query = event.target.searchInput.value;
+        console.log("this is the fetch")
+        fetch( `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=playlist&order=viewCount&relevanceLanguage=en&maxResults=25&q=${query}&key=${process.env.REACT_APP_API_KEY}`)
+        .then(res=>console.log(res))
+        .catch(err=>console.log(err))
+
         axios({
             method: 'get',
             url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=playlist&order=viewCount&relevanceLanguage=en&maxResults=25&q=${query}&key=${process.env.REACT_APP_API_KEY}`,
+            transformRequest: (data, headers) => {
+                delete headers.common['Authorization'];
+            }
         })
         .then(res=>{
             handleSearchPlaylist(res.data.items);

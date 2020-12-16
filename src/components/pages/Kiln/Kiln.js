@@ -12,6 +12,9 @@ export default function Kiln() {
     const { user } = useContext(UserContext);
     let [ skill, setSkill] = useState([]);
     const [tabIndex, setTabIndex] = useState(0);
+    useEffect(() => {
+        //call the current skill from the user profile
+    }, [])
 
     if(user){
         return (
