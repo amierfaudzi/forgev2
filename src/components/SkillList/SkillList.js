@@ -7,10 +7,10 @@ import { PlaylistContext } from '../../context/PlaylistContext';
 export default function SkillList({skill}) {
 
     let history = useHistory();
-    let { handleCurrentVideo } = useContext(PlaylistContext);
+    let { handleActivePlaylist } = useContext(PlaylistContext);
 
     const handleLearn = () => {
-        handleCurrentVideo(skill);
+        handleActivePlaylist(skill);
         history.push('/learn');
     }
     return (
