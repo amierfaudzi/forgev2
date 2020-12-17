@@ -39,16 +39,14 @@ export default function SkillCard({skill}) {
 
     return (
         <div className="skill">
-            <div>
-                <p>{skill.skillName}</p>
-                <p>{skill.skillDescription}</p>
+            <img src={skill.thumbnailUrl} alt="" className="skill__image"/>
+            <div className="skill__sub skill__sub--first">
+                <p className="skill__title">{skill.title} by {skill.channelTitle}</p>
+                <p>{skill.description}</p>
             </div>
-            <div>
-                <img src={skill.thumbnailUrl} alt=""/>
-                <div>
-                    <p>{skill.title} by {skill.channelTitle}</p>
-                    <p>{skill.description}</p>
-                </div>
+            <div className="skill__sub">
+                <p className="skill__title">{skill.skillName}</p>
+                <p>{skill.skillDescription}</p>
             </div>
         </div>
     )
