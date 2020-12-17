@@ -14,7 +14,7 @@ export default function List({list, skill, setSkill}) {
 
     const handleClick = () => {
         setSkill(skill={...skill, ...skillInfo});
-        console.log("This is the skill", skill)
+        alert("Skill has been added")
     }
 
     return (

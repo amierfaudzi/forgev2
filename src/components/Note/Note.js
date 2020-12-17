@@ -46,7 +46,8 @@ export default class Note extends Component {
     
     //update when the user stops typing for 2 sec
     update = debounce(()=>{
-        console.log("Database is being updated")
+        console.log("Database is being updated");
+        //axios post request here to send in the data
     }, 2000);
 }
 
