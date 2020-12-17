@@ -25,7 +25,7 @@ export default function Navigation() {
                     <Link to='/' className="link">
                     <Forge className="logo"/>
                     <div className="nav__link">
-                        {(user ? `${user.credentials.name}'s` : "")}  Forge
+                        {(user ? `${user.name}'s` : "")}  Forge
                     </div>
                     </Link>
                     { user ?             

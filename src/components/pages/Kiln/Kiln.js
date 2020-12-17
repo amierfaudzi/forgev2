@@ -4,7 +4,6 @@ import 'react-tabs/style/react-tabs.css';
 import { UserContext } from '../../../context/UserContext';
 import Unauthorized from '../Unauthorized/Unauthorized';
 import SkillGenerator from '../../SkillGenerator/SkillGenerator';
-import { Link } from 'react-router-dom';
 import './Kiln.scss';
 import axios from 'axios';
 import SkillList from '../../SkillList/SkillList';
@@ -45,9 +44,9 @@ export default function Kiln() {
                     </div>
                     </TabPanel>
                     <TabPanel>
-                    {userSkills.map(skill=> {
+                    {userSkills ? userSkills.map(skill=> {
                         return <SkillList key={skill.playlistId} skill={skill}/>
-                    })}
+                    }) : <h2>Add a skill!</h2>}
                     </TabPanel>
                 </Tabs>
     

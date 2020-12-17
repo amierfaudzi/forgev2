@@ -18,12 +18,19 @@
     &__row {
         flex-grow: 1;
         display: flex;
-        border-bottom: 1px gray solid;
         align-items: center;
+        flex-direction: column;
         padding: 3rem;
+        border-bottom: 1px solid gray;
+
+        &--first {
+            align-items: flex-start;
+            text-align: left;
+            height: 100%;
+        }
 
         &--middle {
-            justify-content: flex-end;
+            flex-direction: column;
         }
 
         &--final {
@@ -57,4 +64,32 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+
+.icon-home {
+    height: 100px;
+    width: 100px;
+
+    &--sub{
+        height: 3rem;
+        width: 3rem;
+    }
+}
+
+.guide-tray {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &__sub {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.highlight {
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: $dark-red;
 }

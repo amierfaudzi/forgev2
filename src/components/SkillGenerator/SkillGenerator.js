@@ -52,11 +52,11 @@ const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
       method: 'post',
       url: '/skills',
       data: {...addedPlaylist}})
-    .then(res=>console.log(res))
+    .then(res=>{
+      console.log(res)
+      handleSearchPlaylist(null)
+    })
     .catch(err=>console.log(err))
-    
-    handleSearchPlaylist(null);
-
     setTabIndex(1);
   };
 

@@ -11,12 +11,12 @@ export default function User() {
         {user ?
         <section className="user">
             <div className="user__profile">
-                <img src={user.credentials.imageUrl} alt="user-profile" className="user__image"/>
+                <img src={user.imageUrl} alt="user-profile" className="user__image"/>
             </div>
 
             <div className="user__info">
-                <p>Name: {user.credentials.name}</p>
-                <p>Level: {user.credentials.level}</p>
+                <p>Name: {user.name}</p>
+                <p>Level: {user.level}</p>
             </div>
         </section>: ""}
         </>

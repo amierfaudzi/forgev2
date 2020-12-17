@@ -7,7 +7,7 @@ export default class PlaylistContextProvider extends Component {
         searchedPlaylist: null,
         addedPlaylist: null,
         currentVideo: null,
-        activePlaylist: null
+        activePlaylist: null 
     }
 
     handleSearchPlaylist = (playlist) => {

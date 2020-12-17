@@ -5,7 +5,7 @@ import { PlaylistContext } from '../../context/PlaylistContext';
 
 export default function SkillCard({skill}) {
 
-    const { handleAddedPlaylist, addedPlaylist} = useContext(PlaylistContext);
+    const { handleAddedPlaylist } = useContext(PlaylistContext);
     console.log(skill);
 
     useEffect(() => {
@@ -18,6 +18,7 @@ export default function SkillCard({skill}) {
                 ...skill,
                 nextPageToken: res.data.nextPageToken,
                 totalVideos: res.data.pageInfo.totalResults,
+                currentVideo: 0,
                 video: []
             }
             res.data.items.map(data=> {

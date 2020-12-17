@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import './SkillList.scss';
 import { ReactComponent as Hammer } from '../../assets/icons/icons8-hammer.svg';
+import { PlaylistContext } from '../../context/PlaylistContext';
 
 export default function SkillList({skill}) {
 
     let history = useHistory();
-    console.log(skill)
+    let { handleCurrentVideo } = useContext(PlaylistContext);
+
     const handleLearn = () => {
-        history.push('/learn')
+        handleCurrentVideo(skill);
+        history.push('/learn');
     }
     return (
         <div className="skillList">

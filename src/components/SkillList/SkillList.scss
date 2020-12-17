@@ -9,6 +9,8 @@
     margin: 1.5rem 0.5rem;
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
+    box-shadow: 2px 2px 2px 2px gray;
+    border-radius: 8px;
 
     &__info {
         display: flex;
@@ -42,6 +44,7 @@
 
     &__image {
         display: block;
+        border-radius: 8px 0 0 8px;
     }
 
     &__icon {

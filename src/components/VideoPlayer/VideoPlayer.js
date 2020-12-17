@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import './VideoPlayer.scss';
 import ReactPlayer from 'react-player/youtube';
+import { PlaylistContext } from '../../context/PlaylistContext';
 
 export default function VideoPlayer() {
 
+    let { currentVideo, activePlaylist } = useContext(PlaylistContext);
+    let videoPositionId;
     
+    useEffect(() => {
+        //check the current position on the playlist
+        //filter
+    }, [])
+
     return (
         <section className="video-player">
             <div className="video-player__container">
             <ReactPlayer
-            url='https://www.youtube.com/watch?v=QFaFIcGhPoM'
+            url={`https://www.youtube.com/watch?v=${videoPositionId}`}
             controls
             />
             </div>
