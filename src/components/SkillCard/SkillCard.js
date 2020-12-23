@@ -16,7 +16,7 @@ export default function SkillCard({skill}) {
             console.log("this is the response from a playlislist call", res.data)
             let newSkill = {
                 ...skill,
-                nextPageToken: res.data.nextPageToken,
+                nextPageToken: res.data.nextPageToken || null,
                 totalVideos: res.data.pageInfo.totalResults,
                 currentVideo: 0,
                 video: []

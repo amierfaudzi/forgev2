@@ -10,6 +10,7 @@ export default function SkillList({skill}) {
     let { handleActivePlaylist } = useContext(PlaylistContext);
 
     const handleLearn = () => {
+        console.log("this is the skill list",skill)
         handleActivePlaylist(skill);
         history.push('/learn');
     }
@@ -25,6 +26,7 @@ export default function SkillList({skill}) {
                 </div>
                 <div className="skillList__info--summary">
                     <h2>Progress</h2>
+                    <p>This is video 1 out of {skill.videoAmount}</p>
                 </div>
             </div>
             <Hammer onClick={handleLearn} className="skillList__icon"/>

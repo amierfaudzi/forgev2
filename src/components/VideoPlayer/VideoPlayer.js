@@ -29,7 +29,7 @@ export default function VideoPlayer() {
         handleCurrentVideo(activePlaylist.video[videoPosition]);
         videoId = (activePlaylist.video[videoPosition].videoId);
         currentUrl = `https://www.youtube.com/watch?v=${videoId}`;
-        console.log(currentVideo, activePlaylist, videoId)
+        //console.log(currentVideo, activePlaylist, videoId)
     }, []);
 
     videoPosition = activePlaylist.currentVideo;
