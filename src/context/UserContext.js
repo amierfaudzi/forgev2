@@ -6,7 +6,7 @@ export default class UserContextProvider extends Component {
 
     state = {
         user: null,
-        userSkills: null
+        userSkills: []
     }
 
     handleAuth = (profile, logout=false) => {
@@ -19,7 +19,7 @@ export default class UserContextProvider extends Component {
 
     handleSkill = (skills) => {
         this.setState({
-            userSkills: skills
+            userSkills: [...this.state.userSkills, ...skills]
         })
     }
 

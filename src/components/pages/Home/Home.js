@@ -11,33 +11,8 @@ import { ReactComponent as Join } from '../../../assets/icons/next.svg';
 import { ReactComponent as Right } from '../../../assets/icons/icons8-right.svg';
 import { ReactComponent as LevelUp } from '../../../assets/icons/level-up.svg';
 import { ReactComponent as And } from '../../../assets/icons/icons8-and.svg';
-import jwtDecode from 'jwt-decode';
 
 export default function Home() {
-
-    const token = localStorage.FBIdToken;
-    let { user, handleAuth, handleSkill } = useContext(UserContext);
-    let [userLoading, setUserLoading] = useState(false);
-
-    useEffect(()=>{
-      if(token){
-        const decodedToken = jwtDecode(token);
-        if(decodedToken.exp*1000 < Date.now()){
-          window.location.href = '/join';
-        } else {
-          setUserLoading(true);
-          axios.defaults.headers.common['Authorization'] = token;
-          axios.get('/user').then(res=>{
-            console.log(res);
-            handleAuth(res.data.credentials);
-            handleSkill(res.data.skills);
-          })
-          .catch(err=>console.log(err));
-          setUserLoading(false);
-
-        }
-      }
-    }, [])
 
     const handleJoin = () => {
       window.location.href = '/join'
@@ -45,7 +20,9 @@ export default function Home() {
 
     return (
         <div className="main">
-          {(userLoading) ?
+
+          <h1>This is the home</h1>
+          {/* {(userLoading) ?
           <div className="loading">
             Fetching Profile...
             <Loading/>
@@ -97,7 +74,7 @@ export default function Home() {
             <button className="btn-fire" onClick={handleJoin}>Join Now <Join className="icon-join"/> </button>
           </div>
           </div> 
-          }
+          } */}
         </div>
     )
 }

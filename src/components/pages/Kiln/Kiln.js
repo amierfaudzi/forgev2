@@ -15,16 +15,7 @@ export default function Kiln() {
     const [tabIndex, setTabIndex] = useState(0);
     const token = localStorage.FBIdToken;
 
-    useEffect(() => {
-    //call the current skill from the user profile
-    axios.get('/skills')
-    .then(res=>{
-        console.log("this is the skill", res.data);
-        handleSkill(res.data);
-    })
-    .catch(err=>console.log(err))
-
-    }, [])
+    console.log(userSkills)
 
     if(token){
         return (
