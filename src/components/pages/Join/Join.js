@@ -18,6 +18,8 @@ export default function Join() {
         axios.post('/signin', userData)
         .then((res) => {
             setAuthorizationHeader(res.data.token);
+            //set the name here
+            console.log(res.data)
             history.push('/');
         })
         .catch((err) => {

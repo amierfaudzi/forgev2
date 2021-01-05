@@ -9,8 +9,7 @@ import jwtDecode from 'jwt-decode';
 export default function Navigation() {
 
     const history = useHistory();
-    const token = localStorage.FBIdToken;
-    const { user, handleAuth, handleSkill } = useContext(UserContext);
+    const { user, handleAuth } = useContext(UserContext);
 
     const handleLogout = () => {
         localStorage.removeItem('FBIdToken');
@@ -18,23 +17,6 @@ export default function Navigation() {
         handleAuth(null, true);
         history.push('/');
     }
-
-    useEffect(()=>{
-        if(token){
-          const decodedToken = jwtDecode(token);
-          if(decodedToken.exp*1000 < Date.now()){
-            window.location.href = '/join';
-          } else {
-            axios.defaults.headers.common['Authorization'] = token;
-            axios.get('/user').then(res=>{
-              console.log(res.data);
-              handleAuth(res.data.credentials);
-              handleSkill(res.data.skills);
-            })
-            .catch(err=>console.log(err)); 
-          }
-        }
-      }, [])
 
     return (
 

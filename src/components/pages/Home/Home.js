@@ -11,14 +11,38 @@ import { ReactComponent as Join } from '../../../assets/icons/next.svg';
 import { ReactComponent as Right } from '../../../assets/icons/icons8-right.svg';
 import { ReactComponent as LevelUp } from '../../../assets/icons/level-up.svg';
 import { ReactComponent as And } from '../../../assets/icons/icons8-and.svg';
+import jwtDecode from 'jwt-decode';
 
 export default function Home() {
 
+  const token = localStorage.FBIdToken;
+  
+  const { user, handleAuth, handleSkill } = useContext(UserContext);
+  
     const handleJoin = () => {
-      window.location.href = '/join'
+      window.location.href = '/join' 
     }
 
+    useEffect(()=>{
+      console.log("This component has rerendered")
+      if(token){
+        const decodedToken = jwtDecode(token);
+        if(decodedToken.exp*1000 < Date.now()){
+          window.location.href = '/join';
+        } else {
+          axios.defaults.headers.common['Authorization'] = token;
+          axios.get('/user').then(res=>{
+            console.log(res.data);
+            handleAuth(res.data.credentials);
+            handleSkill(res.data.skills);
+          })
+          .catch(err=>console.log(err)); 
+        }
+      }
+    }, [])
+
     return (
+
         <div className="main">
 
           <h1>This is the home</h1>
