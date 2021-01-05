@@ -6,7 +6,7 @@ import axios from 'axios';
 
 export default function VideoPlayer() {
 
-    let { handleCurrentVideo, currentVideo, activePlaylist, handleActivePlaylist } = useContext(PlaylistContext);
+    let { handleCurrentVideo, currentVideo, activePlaylist } = useContext(PlaylistContext);
     let videoPosition, videoId, currentUrl;
 
     const handleEnded = () => {
@@ -23,19 +23,19 @@ export default function VideoPlayer() {
         //another axios request to increase the current video counter, notes ons
     };
 
-    useEffect(() => {
-        //here is the code to update the video and stuff
-        videoPosition = activePlaylist.currentVideo;
-        handleCurrentVideo(activePlaylist.video[videoPosition]);
-        videoId = (activePlaylist.video[videoPosition].videoId);
-        currentUrl = `https://www.youtube.com/watch?v=${videoId}`;
-        //console.log(currentVideo, activePlaylist, videoId)
-    }, []);
+    // useEffect(() => {
+    //     //here is the code to update the video and stuff
+    //     videoPosition = activePlaylist.currentVideo;
+    //     handleCurrentVideo(activePlaylist.video[videoPosition]);
+    //     videoId = (activePlaylist.video[videoPosition].videoId);
+    //     currentUrl = `https://www.youtube.com/watch?v=${videoId}`;
+    //     //console.log(currentVideo, activePlaylist, videoId)
+    // }, []);
 
-    videoPosition = activePlaylist.currentVideo;
-    videoId = (activePlaylist.video[videoPosition].videoId);
-    currentUrl = `https://www.youtube.com/watch?v=${videoId}`;
-    console.log(currentVideo, activePlaylist, videoId)
+    // videoPosition = activePlaylist.currentVideo;
+    // videoId = (activePlaylist.video[videoPosition].videoId);
+    // currentUrl = `https://www.youtube.com/watch?v=${videoId}`;
+    // console.log(currentVideo, activePlaylist, videoId)
 
     if(currentVideo) {
         return (

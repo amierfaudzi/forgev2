@@ -10,7 +10,7 @@ import { ReactComponent as Prev } from '../../assets/icons/icons8-chevron-left.s
 import { ReactComponent as Youtube } from '../../assets/icons/icons8-youtube-squared.svg'
 import { ReactComponent as Plus } from '../../assets/icons/icons8-plus-math.svg'
 
-const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
+const SkillGenerator = ({ skill, setSkill, setTabIndex }) => {
 
   const { searchedPlaylist, handleSearchPlaylist, addedPlaylist } = useContext(PlaylistContext);
   const token = localStorage.FBIdToken;
@@ -55,9 +55,9 @@ const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
     .then(res=>{
       console.log(res);
       handleSearchPlaylist(null);
+      setTabIndex(1);
     })
-    .catch(err=>console.log(err))
-    setTabIndex(1);
+    .catch(err=>console.log(err));
   };
 
   const next = () => setCurrentPage((prev) => prev + 1);

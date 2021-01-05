@@ -43,14 +43,7 @@ export default function Home() {
     return (
 
         <div className="main">
-
-          <h1>This is the home</h1>
-          {/* {(userLoading) ?
-          <div className="loading">
-            Fetching Profile...
-            <Loading/>
-          </div>
-          : (token) ? 
+          {(token) ? 
           <div className="home-user">
             <User />
           </div>
@@ -97,7 +90,7 @@ export default function Home() {
             <button className="btn-fire" onClick={handleJoin}>Join Now <Join className="icon-join"/> </button>
           </div>
           </div> 
-          } */}
+          }
         </div>
     )
 }

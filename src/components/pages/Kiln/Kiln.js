@@ -1,14 +1,12 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { UserContext } from '../../../context/UserContext';
 import Unauthorized from '../Unauthorized/Unauthorized';
 import SkillGenerator from '../../SkillGenerator/SkillGenerator';
 import './Kiln.scss';
 import axios from 'axios';
 import SkillList from '../../SkillList/SkillList';
 import HexagonList from '../../HexagonList/HexagonList';
-import { PlaylistContext } from '../../../context/PlaylistContext';
 
 export default function Kiln() {
 
@@ -18,12 +16,11 @@ export default function Kiln() {
     const token = localStorage.FBIdToken;
     
     useEffect(() => {
-        console.log("This has run")
         axios.get('/skills').then(res=> {
             console.log(res.data);
             setSkillList(skillList = res.data)
         }).catch(err=>console.log(err))
-    }, [])
+    }, [tabIndex])
 
     if(token){
         return (
