@@ -34,7 +34,6 @@ export default function Home() {
           axios.get('/user').then(res=>{
             console.log(res.data);
             handleAuth(res.data.credentials);
-            handleSkill(res.data.skills);
           })
           .catch(err=>console.log(err)); 
         }

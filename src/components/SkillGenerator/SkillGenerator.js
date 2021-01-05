@@ -9,7 +9,6 @@ import { ReactComponent as Next } from '../../assets/icons/icons8-chevron-right.
 import { ReactComponent as Prev } from '../../assets/icons/icons8-chevron-left.svg';
 import { ReactComponent as Youtube } from '../../assets/icons/icons8-youtube-squared.svg'
 import { ReactComponent as Plus } from '../../assets/icons/icons8-plus-math.svg'
-import { UserContext } from '../../context/UserContext';
 
 const SkillGenerator = ({ skill, setSkill, setTabIndex}) => {
 

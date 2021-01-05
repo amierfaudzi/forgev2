@@ -8,13 +8,22 @@ import './Kiln.scss';
 import axios from 'axios';
 import SkillList from '../../SkillList/SkillList';
 import HexagonList from '../../HexagonList/HexagonList';
+import { PlaylistContext } from '../../../context/PlaylistContext';
 
 export default function Kiln() {
 
-    const { handleSkill, userSkills } = useContext(UserContext);
     let [ skill, setSkill] = useState([]);
     const [tabIndex, setTabIndex] = useState(0);
+    let [skillList, setSkillList] = useState([]);
     const token = localStorage.FBIdToken;
+    
+    useEffect(() => {
+        console.log("This has run")
+        axios.get('/skills').then(res=> {
+            console.log(res.data);
+            setSkillList(skillList = res.data)
+        }).catch(err=>console.log(err))
+    }, [])
 
     if(token){
         return (
@@ -35,7 +44,7 @@ export default function Kiln() {
                     </div>
                     </TabPanel>
                     <TabPanel>
-                    {userSkills ? userSkills.map(skill=> {
+                    {skillList ? skillList.map(skill=> {
                         return <SkillList key={skill.playlistId} skill={skill}/>
                     }) : <h2>Add a skill!</h2>}
                     </TabPanel>
