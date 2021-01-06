@@ -22,7 +22,7 @@ export default function VideoPlayer() {
         })
         .catch(err=>console.log(err))
         //change the video position to + 1 and send that request
-        videoPosition++;
+        setVideoPosition(videoPosition++)
         //another axios request to increase the current video counter, notes ons
     };
 
