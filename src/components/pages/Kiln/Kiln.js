@@ -42,7 +42,7 @@ export default function Kiln() {
                     </TabPanel>
                     <TabPanel>
                     {skillList ? skillList.map(skill=> {
-                        return <SkillList key={skill.playlistId} skill={skill}/>
+                        return <SkillList key={skill.skillId} skill={skill}/>
                     }) : <h2>Add a skill!</h2>}
                     </TabPanel>
                     <TabPanel>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './List.scss';
 import { ReactComponent as Anvil } from '../../assets/icons/icons8-metal.svg'
+
 export default function List({list, skill, setSkill}) {
 
     //construct the skill here

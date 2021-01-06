@@ -9,8 +9,9 @@ export default function SkillList({skill}) {
     let history = useHistory();
     let { handleActivePlaylist } = useContext(PlaylistContext);
 
+    console.log("this is the list",skill)
+
     const handleLearn = () => {
-        console.log("this is the skill list",skill)
         handleActivePlaylist(skill);
         history.push('/learn');
     }
