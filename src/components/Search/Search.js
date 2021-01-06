@@ -12,11 +12,7 @@ export default function Search() {
     const handleSearch = (event) => {
         event.preventDefault();
         const query = event.target.searchInput.value;
-        console.log("this is the fetch")
-        fetch( `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=playlist&order=viewCount&relevanceLanguage=en&maxResults=25&q=${query}&key=${process.env.REACT_APP_API_KEY}`)
-        .then(res=>console.log(res))
-        .catch(err=>console.log(err))
-
+        
         axios({
             method: 'get',
             url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=playlist&order=viewCount&relevanceLanguage=en&maxResults=25&q=${query}&key=${process.env.REACT_APP_API_KEY}`,
