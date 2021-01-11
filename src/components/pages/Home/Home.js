@@ -14,6 +14,7 @@ import { ReactComponent as LevelUp } from '../../../assets/icons/level-up.svg';
 import { ReactComponent as And } from '../../../assets/icons/icons8-and.svg';
 import jwtDecode from 'jwt-decode';
 import TextSpinner from '../../TextSpinner/TextSpinner';
+import UserHome from '../../UserHome/UserHome';
 
 export default function Home() {
 
@@ -97,7 +98,7 @@ export default function Home() {
           </div> 
           } */}
           {
-          user.name ? <h2 className="user-name">{user.name}</h2> 
+          user.name ? <UserHome /> 
           : 
           <TextSpinner/>
           }

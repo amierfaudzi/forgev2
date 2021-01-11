@@ -1,0 +1,10 @@
+.user-home {
+    background: rgba(255, 255, 255, 0.9);
+    height: 50vh;
+    width: 80vw;
+
+    &__content {
+        display: flex;
+        justify-content: space-around;
+    }
+}
