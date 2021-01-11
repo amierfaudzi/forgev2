@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './VideoPlayer.scss';
 import ReactPlayer from 'react-player/youtube';
-import { PlaylistContext } from '../../context/PlaylistContext';
+import { PlaylistContext } from '../../contexts/PlaylistContext';
 import axios from 'axios';
 
 export default function VideoPlayer() {

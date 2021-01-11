@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import Stepper from 'react-stepper-horizontal';
 import axios from 'axios';
 import List from '../List/List';
-import { PlaylistContext } from '../../context/PlaylistContext';
+import { PlaylistContext } from '../../contexts/PlaylistContext';
 import SkillCard from '../SkillCard/SkillCard';
 import './SkillGenerator.scss';
 import { ReactComponent as Next } from '../../assets/icons/icons8-chevron-right.svg';

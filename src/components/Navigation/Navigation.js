@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './Navigation.scss';
 import { Link, useHistory } from 'react-router-dom';
 import { ReactComponent as Forge } from '../../assets/icons/icons8-hammer-and-anvil.svg';
-import { UserContext } from '../../context/UserContext';
+import { UserContext } from '../../contexts/UserContext';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 

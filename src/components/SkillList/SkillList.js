@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import './SkillList.scss';
 import { ReactComponent as Hammer } from '../../assets/icons/icons8-hammer.svg';
-import { PlaylistContext } from '../../context/PlaylistContext';
+import { PlaylistContext } from '../../contexts/PlaylistContext';
 
 export default function SkillList({skill}) {
 

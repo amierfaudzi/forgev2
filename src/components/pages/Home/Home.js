@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState } from 'react';
 import User from '../../User/User';
 import './Home.scss';
 import axios from 'axios';
-import { UserContext } from '../../../context/UserContext';
+import { UserContext } from '../../../contexts/UserContext';
 import { ReactComponent as Note } from '../../../assets/icons/icons8-note.svg';
 import { ReactComponent as Plan } from '../../../assets/icons/sketch.svg';
 import { ReactComponent as Video } from '../../../assets/icons/icons8-video.svg';

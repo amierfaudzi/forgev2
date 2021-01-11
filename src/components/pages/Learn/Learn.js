@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Note from '../../Note/Note';
 import VideoPlayer from '../../VideoPlayer/VideoPlayer';
 import './Learn.scss';
-import { PlaylistContext } from '../../../context/PlaylistContext';
+import { PlaylistContext } from '../../../contexts/PlaylistContext';
 
 export default function Learn() {
 

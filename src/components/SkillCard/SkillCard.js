@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import './SkillCard.scss';
 import axios from 'axios';
-import { PlaylistContext } from '../../context/PlaylistContext';
+import { PlaylistContext } from '../../contexts/PlaylistContext';
 
 export default function SkillCard({skill}) {
 
