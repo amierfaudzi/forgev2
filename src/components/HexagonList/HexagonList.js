@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './HexagonList.scss';
 
-export default function HexagonList() {
-
+export default function HexagonList({handleSkill}) {
+ 
   let [ skill, setSkill ] = useState('');
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function HexagonList() {
         {skill.map(data => {
 
           return(
-          <li className="honeycomb-cell">
+          <li className="honeycomb-cell" onClick={handleSkill}>
             <img className="honeycomb-cell__image" src={data.thumbnailUrl}/>
             <div className="honeycomb-cell__content">
               <h3 className="honeycomb-cell__title">{data.skillName}</h3>

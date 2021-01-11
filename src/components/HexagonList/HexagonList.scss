@@ -107,7 +107,7 @@ $viewport-thereshold: $hexagon-width + $hexagon-margin;
         color: white;
 
         &::before {
-            background: black;
+            background: none;
         }
 
         &::after {
