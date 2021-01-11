@@ -1,6 +1,6 @@
 $hexagon-width: 220px;
 $hexagon-height: $hexagon-width*.55;
-$hexagon-margin: 30px;
+$hexagon-margin: 24px;
 $hexagon-title-color: #fff;
 $hexagon-border-color: #fff;
 $hexagon-border-color--hover: goldenrod;
@@ -50,6 +50,10 @@ $viewport-thereshold: $hexagon-width + $hexagon-margin;
       &__title {
         color: white;
       }
+
+      &__description {
+        color: white;
+      }
   
       &__image {
         object-fit: cover;
@@ -85,7 +89,7 @@ $viewport-thereshold: $hexagon-width + $hexagon-margin;
   
       &:not(.honeycomb-cell--dormant):hover {
         
-        .honeycomb-cell__title {
+        .honeycomb-cell__content {
           opacity: 0;
         }
         

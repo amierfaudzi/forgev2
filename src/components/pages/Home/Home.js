@@ -3,6 +3,7 @@ import User from '../../User/User';
 import './Home.scss';
 import axios from 'axios';
 import { UserContext } from '../../../contexts/UserContext';
+import { ProfileContext } from '../../../contexts/ProfileContext';
 import { ReactComponent as Note } from '../../../assets/icons/icons8-note.svg';
 import { ReactComponent as Plan } from '../../../assets/icons/sketch.svg';
 import { ReactComponent as Video } from '../../../assets/icons/icons8-video.svg';
@@ -18,7 +19,10 @@ export default function Home() {
 
   const token = localStorage.FBIdToken;
   
-  const { user, handleAuth, handleSkill } = useContext(UserContext);
+  // const { user, handleAuth, handleSkill } = useContext(UserContext);
+  const { user } = useContext(ProfileContext);
+
+  console.log(user)
   
     const handleJoin = () => {
       window.location.href = '/join' 
@@ -92,8 +96,12 @@ export default function Home() {
           </div>
           </div> 
           } */}
-
+          {
+          user.name ? <h2 className="user-name">{user.name}</h2> 
+          : 
           <TextSpinner/>
+          }
+          
         </div>
     )
 }
