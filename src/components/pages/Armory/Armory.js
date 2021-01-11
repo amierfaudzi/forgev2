@@ -43,8 +43,9 @@ export default function Armory() {
             </div>
 
             <div>
-                <HexagonList handleSkill={handleSkill}/>
-                <AddSkillModal />
+                {!isVisible ? <HexagonList handleSkill={handleSkill} toggleModal={toggleModal}/> : ""}
+                
+                <AddSkillModal isVisible={isVisible} toggleModal={toggleModal} notify={call}/>
             </div>
         </div>
     )

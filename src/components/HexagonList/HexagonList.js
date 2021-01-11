@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './HexagonList.scss';
 
-export default function HexagonList({handleSkill}) {
+export default function HexagonList({handleSkill, toggleModal}) {
  
   let [ skill, setSkill ] = useState('');
 
@@ -19,7 +19,7 @@ export default function HexagonList({handleSkill}) {
     return (
 
       <ul className="honeycomb">
-        <li className="honeycomb-cell honeycomb-cell--dormant" >
+        <li className="honeycomb-cell honeycomb-cell--dormant" onClick={toggleModal}>
             <div className="honeycomb-cell__title">Add a new skill</div>
         </li>
 
