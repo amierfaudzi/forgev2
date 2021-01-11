@@ -4,9 +4,15 @@
 
 .main {
     margin: 0 auto;
-    @include maximum-content-width;
     height: 100%;
-    border: 1px solid gray;
+    width: 100%;
+    background-color: gray;
+    background-image: url('../../../assets/images/forging.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .welcome {

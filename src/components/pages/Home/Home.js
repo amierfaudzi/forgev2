@@ -12,6 +12,7 @@ import { ReactComponent as Right } from '../../../assets/icons/icons8-right.svg'
 import { ReactComponent as LevelUp } from '../../../assets/icons/level-up.svg';
 import { ReactComponent as And } from '../../../assets/icons/icons8-and.svg';
 import jwtDecode from 'jwt-decode';
+import TextSpinner from '../../TextSpinner/TextSpinner';
 
 export default function Home() {
 
@@ -24,26 +25,26 @@ export default function Home() {
     }
 
     useEffect(()=>{
-      console.log("This component has rerendered")
-      if(token){
-        const decodedToken = jwtDecode(token);
-        if(decodedToken.exp*1000 < Date.now()){
-          window.location.href = '/join';
-        } else {
-          axios.defaults.headers.common['Authorization'] = token;
-          axios.get('/user').then(res=>{
-            console.log(res.data);
-            handleAuth(res.data.credentials);
-          })
-          .catch(err=>console.log(err)); 
-        }
-      }
+      // console.log("This component has rerendered")
+      // if(token){
+      //   const decodedToken = jwtDecode(token);
+      //   if(decodedToken.exp*1000 < Date.now()){
+      //     window.location.href = '/join';
+      //   } else {
+      //     axios.defaults.headers.common['Authorization'] = token;
+      //     axios.get('/user').then(res=>{
+      //       console.log(res.data);
+      //       handleAuth(res.data.credentials);
+      //     })
+      //     .catch(err=>console.log(err)); 
+      //   }
+      // }
     }, [])
 
     return (
 
         <div className="main">
-          {(token) ? 
+          {/* {(token) ? 
           <div className="home-user">
             <User />
           </div>
@@ -90,7 +91,9 @@ export default function Home() {
             <button className="btn-fire" onClick={handleJoin}>Join Now <Join className="icon-join"/> </button>
           </div>
           </div> 
-          }
+          } */}
+
+          <TextSpinner/>
         </div>
     )
 }

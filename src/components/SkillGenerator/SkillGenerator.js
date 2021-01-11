@@ -75,6 +75,15 @@ const SkillGenerator = ({ skill, setSkill, setTabIndex }) => {
           completeBarColor="green"
         />
 
+        <Stepper
+          steps={sections}
+          activeStep={currentPage}
+          activeColor="red"
+          defaultBarColor="red"
+          completeColor="green"
+          completeBarColor="green"
+        />
+
         {currentPage === 1 && (
           <form onSubmit={handleSkillInfo}>
             <div className="tray tray--first">

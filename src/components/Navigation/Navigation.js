@@ -26,18 +26,17 @@ export default function Navigation() {
                     <Link to='/' className="link">
                     <Forge className="logo"/>
                     <div className="nav__link">
-                        {(user ? `${user.name}'s` : "")}  Forge
+                        Forge
                     </div>
-                    </Link>
-                    { user ?             
+                    </Link>          
                     <Link to='/kiln' className="link">
-                    <div className="nav__link">
-                        Kiln
-                    </div>
-                    </Link >: ""}
+                        <div className="nav__link">
+                            Armory
+                        </div>
+                    </Link >
                 </div>
                 
-                { user ?
+                {/* { user ?
                 <div className="link nav__link" onClick={handleLogout}>
                 Log Out
                 </div> 
@@ -46,7 +45,12 @@ export default function Navigation() {
                     <div className="nav__link">
                     Join
                     </div>
-                </Link>}
+                </Link>} */}
+
+                <div>
+                    <div className="link nav__link">Grand Keep</div>
+                    <div className="link nav__link">Join</div>
+                </div>
             </div>
         </nav>
     )
