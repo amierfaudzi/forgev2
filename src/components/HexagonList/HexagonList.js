@@ -1,39 +1,48 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import './HexagonList.scss';
 
 export default function HexagonList() {
+
+  let [ skill, setSkill ] = useState('');
+
+  useEffect(() => {
+    axios.get('/skills')
+    .then(res => {
+      console.log(res.data);
+      setSkill(skill=res.data);
+    })
+    .catch(err => console.log(err))
+  }, [])
+  
+  if(skill){
     return (
 
-    <ul className="honeycomb">
-        <li className="honeycomb-cell honeycomb-cell--none">
-          <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/1"/>
-          <div className="honeycomb-cell__title">Add a new skill</div>
+      <ul className="honeycomb">
+        <li className="honeycomb-cell honeycomb-cell--dormant" >
+            <div className="honeycomb-cell__title">Add a new skill</div>
         </li>
-        <li className="honeycomb-cell honeycomb-cell--none">
-          <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/1"/>
-          <div className="honeycomb-cell__title">Add a new skill</div>
-        </li>
-        <li className="honeycomb-cell honeycomb-cell--none">
-          <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/1"/>
-          <div className="honeycomb-cell__title">Add a new skill</div>
-        </li>
-        <li className="honeycomb-cell honeycomb-cell--none">
-          <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/1"/>
-          <div className="honeycomb-cell__title">Add a new skill</div>
-        </li>
-        <li className="honeycomb-cell honeycomb-cell--none">
-          <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/1"/>
-          <div className="honeycomb-cell__title">Add a new skill</div>
-        </li>
-        <li className="honeycomb-cell honeycomb-cell--none">
-          <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/1"/>
-          <div className="honeycomb-cell__title">Add a new skill</div>
-        </li>
-        <li className="honeycomb-cell honeycomb-cell--none">
-          <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/1"/>
-          <div className="honeycomb-cell__title">Add a new skill</div>
-        </li>
-    </ul>
 
-    )
+        {skill.map(data => {
+
+          return(
+          <li className="honeycomb-cell">
+            <img className="honeycomb-cell__image" src={data.thumbnailUrl}/>
+            <div className="honeycomb-cell__title">Skill I</div>
+          </li>
+          )
+        })}
+
+      </ul>
+  
+      )
+  } else {
+    return ""
+  }
 }
+
+
+// add the skill constructor
+// -> modal
+// toast notification
+// also generate the skill from the user

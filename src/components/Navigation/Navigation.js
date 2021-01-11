@@ -50,7 +50,7 @@ export default function Navigation() {
                         Forge
                     </div>
                     </Link>          
-                    <Link to='/kiln' className="link">
+                    <Link to='/armory' className="link">
                         <div className="nav__link">
                             Armory
                         </div>
