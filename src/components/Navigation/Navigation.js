@@ -31,7 +31,8 @@ export default function Navigation() {
                 axios.defaults.headers.common['Authorization'] = token;
                 axios.get('/user')
                 .then(res => {
-                    dispatchEvent({ type: SET_USER, name: res.data.credentials.name})
+                    dispatch({ type: SET_USER, name: res.data.credentials.name})
+                    console.log("this is the user", user.name)
                 })
                 .catch(err => console.log(err));
             }
@@ -67,10 +68,11 @@ export default function Navigation() {
                     </div>
                 </Link>} */}
 
-                <div>
                     <div className="link nav__link">Grand Keep</div>
-                    <div className="link nav__link">Join</div>
-                </div>
+
+                    <Link to='/login'>
+                        <div className="link nav__link">Join</div>
+                    </Link>
             </div>
         </nav>
     )

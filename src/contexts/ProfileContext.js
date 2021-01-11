@@ -23,4 +23,4 @@ const ProfileContextProvider = (props) => {
     )
 }
 
-export default ProfileContextProvider;
+export default ProfileContextProvider; 
