@@ -58,11 +58,15 @@ export default function Armory() {
         <div>
             <div className="armory__title">
                 This is the armory
+
+                <button onClick={toggleModal}>Modal</button>
             </div>
 
-            <HexagonWebtiki handleSkill={handleSkill} skill={skill}/>
+            <HexagonWebtiki handleSkill={handleSkill} skill={skill} toggleModal={toggleModal}/>
 
             <AddSkillModal isVisible={isVisible} toggleModal={toggleModal} notify={call}/>
+
+            
         </div>
     )
 }
