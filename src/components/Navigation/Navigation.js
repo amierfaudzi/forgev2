@@ -60,18 +60,21 @@ export default function Navigation() {
                     </Link >
                 </div>
 
-                <div className="link nav__link">Grand Keep</div>
+                <div className="nav__sub">
+                    <div className="link nav__link">Grand Keep</div>
                 
-                { user.name ?
-                <div className="link nav__link" onClick={handleLogout}>
-                Log Out
-                </div> 
-                : 
-                <Link to='/login' className="link">
-                    <div className="nav__link">
-                    Join
-                    </div>
-                </Link>}
+                    { user.name ?
+                    <div className="link nav__link" onClick={handleLogout}>
+                    Log Out
+                    </div> 
+                    : 
+                    <Link to='/login' className="link">
+                        <div className="nav__link">
+                        Join
+                        </div>
+                    </Link>}
+                </div>
+
             </div>
         </nav>
     )
