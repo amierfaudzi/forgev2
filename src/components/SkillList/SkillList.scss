@@ -24,7 +24,7 @@
             text-align: left;
             flex: 2;
             padding: 1rem;
-            border-right: 1px solid $light-red;
+            border-right: 1px solid $primary-red;
 
             p {
                 margin: 0;
@@ -34,7 +34,7 @@
         &--summary {
             flex: 1;
             padding: 1rem;
-            border-right: 1px solid $light-red;
+            border-right: 1px solid $primary-red;
         }
     }
 
@@ -54,7 +54,7 @@
         margin: 0 1rem;
 
         &:hover {
-            fill: $dark-red;
+            fill: $primary-red;
         }
     }
 }

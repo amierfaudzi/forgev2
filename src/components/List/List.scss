@@ -3,7 +3,7 @@
 @use '../styles/variable' as *;
 
 .list {
-    border: 1px $dark-red solid;
+    border: 1px $primary-red solid;
     border-radius: 8px;
     display: flex;
     flex-direction: column;

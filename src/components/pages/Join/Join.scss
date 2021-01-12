@@ -20,7 +20,7 @@
     flex: 1;
 
     &--first {
-        border-right: 2px $light-red solid;
+        border-right: 2px $primary-red solid;
     }
 
     &__text {
@@ -35,7 +35,7 @@
         background-color: rgba(0,0,0, 0.05);
 
         &:focus {
-            border: 1px $dark-red solid;
+            border: 1px $primary-red solid;
         }
     }
 

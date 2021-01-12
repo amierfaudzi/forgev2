@@ -15,6 +15,7 @@ export default function SkillList({skill}) {
         handleActivePlaylist(skill);
         history.push('/learn');
     }
+    
     return (
         <div className="skillList">
             <img src={skill.thumbnailUrl} alt="" className="skillList__image"/>

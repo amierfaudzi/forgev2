@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import DormantHex from '../DormantHex/DormantHex';
 import './HexagonList.scss';
 
 export default function HexagonList({handleSkill, toggleModal}) {
@@ -19,34 +20,51 @@ export default function HexagonList({handleSkill, toggleModal}) {
     })
   }, [])
   
-  if(skill){
-    return (
-
-      <ul className="honeycomb">
-        <li className="honeycomb-cell honeycomb-cell--dormant" onClick={toggleModal}>
-            <div className="honeycomb-cell__title">Add a new skill</div>
-        </li>
-
-        {skill.map(data => {
-
-          return(
-          <li className="honeycomb-cell" onClick={handleSkill}>
-            <img className="honeycomb-cell__image" src={data.thumbnailUrl}/>
-            <div className="honeycomb-cell__content">
-              <h3 className="honeycomb-cell__title">{data.skillName}</h3>
-              <p className="honeycomb-cell__description">{data.skillDescription}</p>
+ return (
+  <div>
+               {skill ? 
+                <div>
+                <ul className="honeycomb">
+                    {/* <li className="honeycomb-cell" onClick={toggleModal}>
+                        <div className="honeycomb-cell__title">Add a new skill</div>
+                    </li> */}
+                    <li className="honeycomb-cell" onClick={handleSkill}>
+                        <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/1"/>
+                        <div className="honeycomb-cell__title">Skill I</div>
+                    </li>
+                    <li className="honeycomb-cell" onClick={handleSkill}>
+                        <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/2"/>
+                        <div className="honeycomb-cell__title">Skill II</div>
+                    </li>
+                    <li className="honeycomb-cell" onClick={handleSkill}>
+                        <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/3"/>
+                        <div className="honeycomb-cell__title">Skill II</div>
+                    </li>
+                    <li className="honeycomb-cell" onClick={handleSkill}>
+                        <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/4"/>
+                        <div className="honeycomb-cell__title">Skill II</div>
+                    </li>
+                    <li className="honeycomb-cell" onClick={handleSkill}>
+                        <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/5"/>
+                        <div className="honeycomb-cell__title">Skill I</div>
+                    </li>
+                    <li className="honeycomb-cell" onClick={handleSkill}>
+                        <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/5"/>
+                        <div className="honeycomb-cell__title">Skill I</div>
+                    </li>
+                    <li className="honeycomb-cell" onClick={handleSkill}>
+                        <img className="honeycomb-cell__image" src="https://source.unsplash.com/random/5"/>
+                        <div className="honeycomb-cell__title">Skill I</div>
+                    </li>
+                    <li class="honeycomb-cell honeycomb__placeholder"></li>
+                </ul>
             </div>
-          </li>
-          )
-        })}
-
-      </ul>
+            : ''}
+  </div>
+ )
   
-      )
-  } else {
-    return ""
-  }
 }
+
 
 
 // add the skill constructor

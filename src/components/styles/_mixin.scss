@@ -34,7 +34,7 @@
     transition: background-color 0.5s linear;
         
     &:hover {
-        background-color: $dark-red;
+        background-color: $primary-red;
     }
 }
 
@@ -50,7 +50,7 @@
     outline: none;
     background-color: rgba(0,0,0, 0.05);
     &:focus {
-        border: 1px $dark-red solid;
+        border: 1px $primary-red solid;
     }
 }
 

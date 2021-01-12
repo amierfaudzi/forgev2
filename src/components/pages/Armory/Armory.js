@@ -5,9 +5,27 @@ import AddSkillModal from '../../AddSkillModal/AddSkillModal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import HexagonWebtiki from '../../HexagonWebtiki/HexagonWebtiki';
+import { useHistory } from 'react-router-dom';
 
 export default function Armory() {
 
+    let [ skill, setSkill ] = useState('');
+    let history = useHistory();
+    
+    // Calling the skill
+    useEffect(() => {
+      axios.get('/skills')
+      .then(res => {
+        console.log(res.data);
+        setSkill(skill=res.data);
+      })
+      .catch(err => {
+        alert("Please log in or sign up to view your skill")
+      })
+    }, [])
+
+    // Toast notification maker
     const notify = (message) => {
 
         toast(message, {
@@ -42,11 +60,9 @@ export default function Armory() {
                 This is the armory
             </div>
 
-            <div>
-                {!isVisible ? <HexagonList handleSkill={handleSkill} toggleModal={toggleModal}/> : ""}
-                
-                <AddSkillModal isVisible={isVisible} toggleModal={toggleModal} notify={call}/>
-            </div>
+            <HexagonWebtiki handleSkill={handleSkill} skill={skill}/>
+
+            <AddSkillModal isVisible={isVisible} toggleModal={toggleModal} notify={call}/>
         </div>
     )
 }
