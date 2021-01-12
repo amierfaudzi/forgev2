@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './HexagonList.scss';
 
 export default function HexagonList({handleSkill, toggleModal}) {
  
   let [ skill, setSkill ] = useState('');
+  let history = useHistory();
 
   useEffect(() => {
     axios.get('/skills')
@@ -12,7 +14,9 @@ export default function HexagonList({handleSkill, toggleModal}) {
       console.log(res.data);
       setSkill(skill=res.data);
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      alert("Please log in or sign up to view your skill")
+    })
   }, [])
   
   if(skill){

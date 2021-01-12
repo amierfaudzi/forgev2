@@ -12,14 +12,14 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: lightgray;
+        background-color: rgba(0, 0, 0, 0.2);
         z-index: 1000;
     }
 
     &__content {
         background: white;
         width: 672px;
-        height: 262px;
+        height: 600px;
         position: absolute;
         //padding: 1.5rem 4rem;
         left: 50%;

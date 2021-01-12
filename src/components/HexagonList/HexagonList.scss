@@ -4,7 +4,7 @@ $hexagon-margin: 24px;
 $hexagon-title-color: #fff;
 $hexagon-border-color: #fff;
 $hexagon-border-color--hover: goldenrod;
-$hexagon-image-color: red;
+$hexagon-image-color: black;
 $honeycomb-max-width: 1080px;
 $viewport-thereshold: $hexagon-width + $hexagon-margin;
 
@@ -117,7 +117,7 @@ $viewport-thereshold: $hexagon-width + $hexagon-margin;
         
         &:hover {
           &::before {
-            background: gray;
+            background: black;
         }
 
         &::after {

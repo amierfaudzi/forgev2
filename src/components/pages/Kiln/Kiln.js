@@ -20,7 +20,7 @@ export default function Kiln() {
             console.log(res.data);
             setSkillList(skillList = res.data)
         }).catch(err=>console.log(err))
-    }, [tabIndex])
+    }, [tabIndex]) 
 
     if(token){
         return (

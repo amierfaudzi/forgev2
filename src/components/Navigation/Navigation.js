@@ -6,7 +6,7 @@ import { UserContext } from '../../contexts/UserContext';
 import { ProfileContext } from '../../contexts/ProfileContext';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { SET_LOADING, SET_USER } from '../../reducers/types';
+import { SET_LOADING, SET_USER, LOG_OUT } from '../../reducers/types';
 
 export default function Navigation() {
 
@@ -17,7 +17,7 @@ export default function Navigation() {
     const handleLogout = () => {
         localStorage.removeItem('FBIdToken');
         delete axios.defaults.headers.common['Authorization'];
-        //handleAuth(null, true);
+        dispatch({ type: LOG_OUT});
         history.push('/');
     }
 
@@ -25,7 +25,10 @@ export default function Navigation() {
         if(token){
             const decodedToken =jwtDecode(token);
             if(decodedToken.exp*1000 < Date.now()){
-                window.location.href = '/login';
+                localStorage.removeItem('FBIdToken');
+                delete axios.defaults.headers.common['Authorization'];
+                dispatch({ type: LOG_OUT});
+                history.push('/login');
             } else {
                 dispatch({ type: SET_LOADING});
                 axios.defaults.headers.common['Authorization'] = token;
@@ -56,23 +59,19 @@ export default function Navigation() {
                         </div>
                     </Link >
                 </div>
+
+                <div className="link nav__link">Grand Keep</div>
                 
-                {/* { user ?
+                { user.name ?
                 <div className="link nav__link" onClick={handleLogout}>
                 Log Out
                 </div> 
                 : 
-                <Link to='/join' className="link">
+                <Link to='/login' className="link">
                     <div className="nav__link">
                     Join
                     </div>
-                </Link>} */}
-
-                    <div className="link nav__link">Grand Keep</div>
-
-                    <Link to='/login'>
-                        <div className="link nav__link">Join</div>
-                    </Link>
+                </Link>}
             </div>
         </nav>
     )
