@@ -7,8 +7,9 @@ import { ReactComponent as Prev } from '../../assets/icons/icons8-chevron-left.s
 import { ReactComponent as YoutubeIcon } from '../../assets/icons/icons8-youtube-squared.svg'
 import { ReactComponent as Plus } from '../../assets/icons/icons8-plus-math.svg';
 import { ReactComponent as X } from '../../assets/icons/icons8-xamarin.svg';
+import List from '../List/List';
 
-export default function AddSkillModal({isVisible, toggleModal, notify}) {
+export default function AddSkillModal({isVisible, toggleModal, notify, searchedPlaylist, setSearchPlaylist}) {
 
     // Navigation
     const [currentPage, setCurrentPage] = useState(1);
@@ -22,7 +23,7 @@ export default function AddSkillModal({isVisible, toggleModal, notify}) {
     const next = () => setCurrentPage((prev) => prev + 1);
     const prev = () => setCurrentPage((prev) => prev - 1);
 
-    // Youtube Search
+    // Youtube 
     const handleSkillSearch = (e) => {
         e.preventDefault();
         const query = e.target.searchInput.value;
@@ -32,6 +33,7 @@ export default function AddSkillModal({isVisible, toggleModal, notify}) {
       }})
         .then(res=>{
           console.log(res.data.items);
+          setSearchPlaylist(searchedPlaylist = res.data.items);
         })
         .catch(err=>console.log(err))
     }
@@ -78,13 +80,14 @@ export default function AddSkillModal({isVisible, toggleModal, notify}) {
                           completeBarColor="green"
                         />
                         <X className="icon-close" onClick={toggleModal}/>
-                        <button onClick={toggleModal}>Close</button>
 
                     </div>
                     <div className="modal__body">
                     {currentPage === 1 && (
                           <form onSubmit={handleSkillInfo}>
                           <div className="tray tray--first">
+                            <div></div>
+                            Page 1
                             <Next onClick={next} className="icon"/>
                           </div>
 
@@ -104,14 +107,13 @@ export default function AddSkillModal({isVisible, toggleModal, notify}) {
             
                     {currentPage === 2 && (
                         <div>
-                            Page 2
                             <div className="tray">
                                 <Prev onClick={prev} className="icon"/>
+                                Page 2
                                 <Next onClick={next} className="icon"/>
                             </div>
                             <div className="form-wrapper">
                                 <form onSubmit={handleSkillSearch} className="form form--youtube-search">
-                                    <YoutubeIcon />
                                     <div className="search-box">
                                     <div className="form__field">
                                         <label htmlFor="searchInput" className="form__label">Search for Playlists on Youtube</label>
@@ -122,6 +124,13 @@ export default function AddSkillModal({isVisible, toggleModal, notify}) {
                                     </div>
                                 </form>
                             </div>
+                            {searchedPlaylist ? 
+                          <div className="search-container">
+                            {searchedPlaylist.map(list=>{
+                              return <List key={list.id.playlistId} list={list}/> 
+                            })}
+                          </div>
+                          : ""}
                         </div>
                     )}
             

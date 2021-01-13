@@ -25,6 +25,9 @@ export default function Armory() {
       })
     }, [])
 
+    // Search Playlist
+    let [ searchedPlaylist, setSearchPlaylist ] = useState([]);
+
     // Toast notification maker
     const notify = (message) => {
 
@@ -51,6 +54,9 @@ export default function Armory() {
 
     const toggleModal = () => {
         console.log("This is isVisible", isVisible)
+        if(searchedPlaylist){
+            setSearchPlaylist([])
+        }
         setIsVisible(!isVisible);
     }
 
@@ -64,7 +70,7 @@ export default function Armory() {
 
             <HexagonWebtiki handleSkill={handleSkill} skill={skill} toggleModal={toggleModal}/>
 
-            <AddSkillModal isVisible={isVisible} toggleModal={toggleModal} notify={call}/>
+            <AddSkillModal isVisible={isVisible} toggleModal={toggleModal} notify={call} searchedPlaylist={searchedPlaylist} setSearchPlaylist={setSearchPlaylist}/>
 
             
         </div>
