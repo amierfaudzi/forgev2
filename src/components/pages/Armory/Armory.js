@@ -12,6 +12,7 @@ export default function Armory() {
 
     let [ skill, setSkill ] = useState('');
     let history = useHistory();
+    const isGrandKeep = false;
     
     // Calling the skill
     useEffect(() => {
@@ -68,7 +69,7 @@ export default function Armory() {
                 <button onClick={toggleModal}>Modal</button>
             </div>
 
-            <HexagonWebtiki handleSkill={handleSkill} skill={skill} toggleModal={toggleModal}/>
+            <HexagonWebtiki handleSkill={handleSkill} skill={skill} toggleModal={toggleModal} isGrandKeep={isGrandKeep}/>
 
             <AddSkillModal isVisible={isVisible} toggleModal={toggleModal} notify={call} searchedPlaylist={searchedPlaylist} setSearchPlaylist={setSearchPlaylist}/>
 
