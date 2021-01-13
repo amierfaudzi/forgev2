@@ -19,8 +19,8 @@ export default function List({list, skill, setSkill}) {
     }
 
     return (
-
-        <div className="list">
+        <>
+        {/* <div className="list">
             <img src={skillInfo.thumbnailUrl} alt="" className="list__image"/>
             <div className="list__body">
                 <div className="list__info">
@@ -31,7 +31,21 @@ export default function List({list, skill, setSkill}) {
                 <button className="list__button" onClick={handleClick}><Anvil className="icon-anvil"/> Add to kiln </button>
             </div>
             </div>
+        </div> */}
+
+        <div className="card">
+            <div className="card__content">
+                <img src={skillInfo.thumbnailUrl} alt="" className="card__image"/>
+                <p className="card__title">{skillInfo.title} by {skillInfo.channelTitle}</p>
+            </div>
+            <div className="card__synopsis">
+                <p className="card__title">{skillInfo.title} by {skillInfo.channelTitle}</p>
+                <p>{skillInfo.description}</p>
+                <button className="list__button" onClick={handleClick}><Anvil className="icon-anvil"/> Add to kiln </button>
+            </div>
         </div>
+        </>
+
 
     )
 }
