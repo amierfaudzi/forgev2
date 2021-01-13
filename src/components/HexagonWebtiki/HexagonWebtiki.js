@@ -1,10 +1,11 @@
 import React from 'react';
 import './HexagonWebtiki.scss';
 import forging from '../../assets/images/forged4.jpg';
+import HexTile from '../HexTile/HexTile';
 
 // Code from https://github.com/web-tiki/responsive-grid-of-hexagons
 
-export default function HexagonWebtiki({handleSkill, skill, toggleModal, isGrandKeep}) {
+export default function HexagonWebtiki({handleClick, skill, toggleModal, isGrandKeep}) {
 
     return (
         <div>
@@ -24,15 +25,7 @@ export default function HexagonWebtiki({handleSkill, skill, toggleModal, isGrand
 
             { skill ? skill.map(data => {
                 return (
-                    <li className="hex" onClick={handleSkill}>
-                    <div className="hexIn">
-                    <div className="hexLink">
-                        <img src={data.thumbnailUrl} alt=""/>
-                        <h1>{data.skillName}</h1>
-                        <p>{data.skillDescription}</p>
-                    </div>
-                    </div>
-                </li>
+                    <HexTile key={data.skillId} data={data}/>
                 )
             }) : ""}
     </ul>

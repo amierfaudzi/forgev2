@@ -48,7 +48,7 @@ export default function Armory() {
     }
 
     const handleSkill = () => {
-        alert("Skill is clicked!")
+        history.push('/learn');
     }
 
     let [isVisible, setIsVisible] = useState(false);
@@ -69,7 +69,7 @@ export default function Armory() {
                 <button onClick={toggleModal}>Modal</button>
             </div>
 
-            <HexagonWebtiki handleSkill={handleSkill} skill={skill} toggleModal={toggleModal} isGrandKeep={isGrandKeep}/>
+            <HexagonWebtiki handleClick={handleSkill} skill={skill} toggleModal={toggleModal} isGrandKeep={isGrandKeep}/>
 
             <AddSkillModal isVisible={isVisible} toggleModal={toggleModal} notify={call} searchedPlaylist={searchedPlaylist} setSearchPlaylist={setSearchPlaylist}/>
 
