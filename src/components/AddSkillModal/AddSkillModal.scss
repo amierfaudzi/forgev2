@@ -1,9 +1,14 @@
+//linking dependencies
+@use '../styles/mixin' as *;
+@use '../styles/variable' as *;
+
 .modal {
     height: 100vh;
     width: 100vw;
     position: fixed;
     top: 0;
     left: 0;
+    border-radius: 8px;
 
     &::before {
         content: "";
@@ -39,4 +44,29 @@
         flex: 1;
         padding: 1.5rem 4rem;
     } 
+}
+
+.form {
+
+    &--youtube-search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        border: 4px solid black;
+        border-radius: 12px;
+        width: 100%
+    }
+
+    &__button {
+        @include form-button;
+    }
+}
+
+.icon-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
 }

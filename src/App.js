@@ -11,6 +11,7 @@ import axios from 'axios';
 import ProfileContextProvider from './contexts/ProfileContext';
 import Login from './components/pages/Login/Login';
 import Armory from './components/pages/Armory/Armory';
+import GrandKeep from './components/pages/GrandKeep/GrandKeep';
 
 axios.defaults.baseURL = 'https://us-central1-the-forge-297301.cloudfunctions.net/api';
 
@@ -24,6 +25,7 @@ function App() {
           <Router>
             <Navigation/>
             <Switch>
+              <Route path='/grandkeep' component={GrandKeep} />
               <Route path='/armory' component={Armory} />
               <Route path='/login' component={Login} />
               <Route path='/join' component={Join} />

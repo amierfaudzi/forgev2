@@ -5,7 +5,7 @@ import './TextSpinner.scss';
 
 export default function TextSpinner() {
     return (
-        <h1 className="text">Welcome fellow
+        <h1 className="text">Welcome, fellow
             <div className="items">
                 <h1 className="item-1">scholar.</h1>
                 <h1 className="item-2">adventurer.</h1>

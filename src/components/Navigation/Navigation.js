@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './Navigation.scss';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { ReactComponent as Forge } from '../../assets/icons/icons8-hammer-and-anvil.svg';
 import { UserContext } from '../../contexts/UserContext';
 import { ProfileContext } from '../../contexts/ProfileContext';
@@ -47,32 +47,35 @@ export default function Navigation() {
         <nav className="nav">
             <div className="nav__wrapper">
                 <div className="nav__sub">
-                    <Link to='/' className="link">
+                    <NavLink exact to='/' activeClassName="link--active" className="link">
                     <Forge className="logo"/>
                     <div className="nav__link">
                         Forge
                     </div>
-                    </Link>          
-                    <Link to='/armory' className="link">
+                    </NavLink>          
+                    <NavLink to='/armory' activeClassName="link--active" className="link">
                         <div className="nav__link">
                             Armory
                         </div>
-                    </Link >
+                    </NavLink >
                 </div>
 
                 <div className="nav__sub">
+
+                <NavLink to='/grandkeep' activeClassName="link--active" className="link">
                     <div className="link nav__link">Grand Keep</div>
-                
+                </NavLink>
+
                     { user.name ?
                     <div className="link nav__link" onClick={handleLogout}>
                     Log Out
                     </div> 
                     : 
-                    <Link to='/login' className="link">
+                    <NavLink to='/login' activeClassName="link--active" className="link">
                         <div className="nav__link">
                         Join
                         </div>
-                    </Link>}
+                    </NavLink>}
                 </div>
 
             </div>

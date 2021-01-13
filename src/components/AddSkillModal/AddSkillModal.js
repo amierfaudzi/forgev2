@@ -6,6 +6,7 @@ import { ReactComponent as Next } from '../../assets/icons/icons8-chevron-right.
 import { ReactComponent as Prev } from '../../assets/icons/icons8-chevron-left.svg';
 import { ReactComponent as YoutubeIcon } from '../../assets/icons/icons8-youtube-squared.svg'
 import { ReactComponent as Plus } from '../../assets/icons/icons8-plus-math.svg';
+import { ReactComponent as X } from '../../assets/icons/icons8-xamarin.svg';
 
 export default function AddSkillModal({isVisible, toggleModal, notify}) {
 
@@ -15,7 +16,7 @@ export default function AddSkillModal({isVisible, toggleModal, notify}) {
     const sections = [
       { title: 'Name and Description', onClick: () => setCurrentPage(1) },
       { title: 'Add a Playlist', onClick: () => setCurrentPage(2) },
-      { title: 'Generate Skill!', onClick: () => setCurrentPage(3) },
+      { title: 'Generate Skill', onClick: () => setCurrentPage(3) },
     ];
 
     const next = () => setCurrentPage((prev) => prev + 1);
@@ -67,9 +68,6 @@ export default function AddSkillModal({isVisible, toggleModal, notify}) {
             <div className="modal">
                 <div className="modal__content">
                     <div className="modal__title">
-                        This is the title
-                        <button onClick={notify}>Notify me~</button>
-                        <button onClick={toggleModal}>Close</button>
 
                         <Stepper
                           steps={sections}
@@ -79,6 +77,8 @@ export default function AddSkillModal({isVisible, toggleModal, notify}) {
                           completeColor="green"
                           completeBarColor="green"
                         />
+                        <X className="icon-close" onClick={toggleModal}/>
+                        <button onClick={toggleModal}>Close</button>
 
                     </div>
                     <div className="modal__body">
