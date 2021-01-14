@@ -52,8 +52,15 @@ export default function Login() {
             confirmPassword: event.target.confirmPassword.value
         };
 
-
-        alert(userData)
+        axios.post('/signup', userData)
+        .then((res) => {
+            setAuthorizationHeader(res.data.token);
+            dispatch({ type: SET_TOKEN, token: res.data.token});
+            history.push('/');
+        })
+        .catch((err) => {
+            console.log(err)
+        });
     }
 
     return (
@@ -104,7 +111,7 @@ export default function Login() {
                     <h3>New here?</h3>
                     <p>Sign up now to start forging your own path.</p>
                     <button className="btn transparent" onClick={handleMode}>Sign up</button>
-                    <img src="http://placekitten.com/200/200" alt="" className="login-image"/>
+                    {/* <img src="http://placekitten.com/200/200" alt="" className="login-image"/> */}
                 </div>
             </div>
             {/* right panel */}
@@ -113,7 +120,7 @@ export default function Login() {
                     <h3>One of us?</h3>
                     <p>You know how it is then. Jump on back and keep on forging!</p>
                     <button className="btn transparent" onClick={handleMode}>Sign In</button>
-                    <img src="http://placekitten.com/200/200" alt="" className="login-image"/>
+                    {/* <img src="http://placekitten.com/200/200" alt="" className="login-image"/> */}
                 </div>
             </div>
         </div>

@@ -2,8 +2,7 @@ import React, { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import './User.scss';
 
-export default function User() {
-    const { user } = useContext(UserContext);
+export default function User({user}) {
 
     console.log(user);
     return (

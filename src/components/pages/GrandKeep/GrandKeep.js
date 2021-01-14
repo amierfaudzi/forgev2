@@ -19,11 +19,12 @@ export default function GrandKeep() {
     }, [])
 
     const handleAddSkill = () => {
-        console.log("Skill has been added to the list")
+        console.log("Skill has been added to the list");
     }
     return (
         <div>
-            This is the grand keep
+            <h1>"Imitation is the sincerest form of flattery"</h1>
+
             <HexagonWebtiki isGrandKeep={isGrandKeep} handleAddSkill={handleAddSkill} skill={publicSkill}/>
         </div>
     )

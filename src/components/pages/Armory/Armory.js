@@ -55,9 +55,7 @@ export default function Armory() {
     return (
         <div>
             <div className="armory__title">
-                This is the armory
-
-                <button onClick={()=>{notify("Toast")}}>Toast</button>
+                <h1>"Keep the fire burning and strike the metal when it is hot"</h1>
             </div>
 
             <HexagonWebtiki handleClick={handleSkill} skill={skill} toggleModal={toggleModal} isGrandKeep={isGrandKeep}/>
