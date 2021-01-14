@@ -19,6 +19,7 @@ export default function UserSummary() {
         <div className="userSummary">
             <User user={userData}/>
 
+            {userData ?            
             <div className="titles-container">
                 <div className="user-titles">
                     <h2>Accolades</h2>
@@ -28,7 +29,7 @@ export default function UserSummary() {
                     <h3 className="accomplishment">Novice Scribe</h3>
                     <h3 className="accomplishment">Master Scholar</h3>
                 </div>
-            </div>
+            </div> : <h2>Fetching Data</h2>}
         </div>
         
     )

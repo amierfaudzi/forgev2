@@ -3,13 +3,20 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
 
     &__controls {
         position: relative;
-        width: 100%;
-        border: 2px solid red;
+        width: 854px;
+        border: 1px solid salmon;
         box-sizing: border-box;
         flex: 1;
+        overflow: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     &__note {
@@ -19,10 +26,16 @@
             display: none;
         }
     }
+
+    &__subtitle {
+        margin: 1rem 0;
+        align-self: flex-start;
+    }
 }
 
 .panel-content {
     background-color: white;
+    border-top: 2px solid turquoise;
 }
 
 .icon-action {
@@ -35,5 +48,17 @@
         top: 6rem;
         width: 50px;
         height: 50px;
+    }
+}
+
+.controls-videos {
+    width: 100%;
+    display: flex;
+
+    &--item {
+        p {
+            margin: 0.5rem 0 0 0;
+
+        }
     }
 }

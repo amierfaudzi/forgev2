@@ -5,7 +5,7 @@ import './User.scss';
 export default function User({user}) {
 
     console.log(user);
-    return (
+    return ( 
         <>
         {user ?
         <section className="user">
