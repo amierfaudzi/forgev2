@@ -7,7 +7,9 @@ import { ReactComponent as Prev } from '../../assets/icons/icons8-chevron-left.s
 import { ReactComponent as YoutubeIcon } from '../../assets/icons/icons8-youtube-squared.svg'
 import { ReactComponent as Plus } from '../../assets/icons/icons8-plus-math.svg';
 import { ReactComponent as X } from '../../assets/icons/icons8-xamarin.svg';
+import { ReactComponent as Hammer } from '../../assets/icons/icons8-hammer.svg';
 import List from '../List/List';
+import SkillCard from '../SkillCard/SkillCard';
 
 export default function AddSkillModal({isVisible, toggleModal, notify, searchedPlaylist, setSearchPlaylist}) {
 
@@ -53,16 +55,15 @@ export default function AddSkillModal({isVisible, toggleModal, notify, searchedP
     }
 
     const handleGenerateSkill = (e) => {
-        // e.preventDefault();
-        // axios({
-        //   method: 'post',
-        //   url: '/skills',
-        //   data: {"PLAYLIST DATA HERE"}})
-        // .then(res=>{
-        //   console.log(res);
-        //   setTabIndex(1);
-        // })
-        // .catch(err=>console.log(err));
+        e.preventDefault();
+        axios({
+          method: 'post',
+          url: '/skills',
+          data: {...skillInfo}})
+        .then(res=>{
+          notify(res.data)
+        })
+        .catch(err=>console.log(err));
     };
     
     if(isVisible){
@@ -127,7 +128,7 @@ export default function AddSkillModal({isVisible, toggleModal, notify, searchedP
                             {searchedPlaylist ? 
                           <div className="search-container">
                             {searchedPlaylist.map(list=>{
-                              return <List key={list.id.playlistId} list={list}/> 
+                              return <List key={list.id.playlistId} list={list} skillInfo={skillInfo} setSkillInfo={setSkillInfo} notify={notify}/> 
                             })}
                           </div>
                           : ""}
@@ -138,12 +139,14 @@ export default function AddSkillModal({isVisible, toggleModal, notify, searchedP
                           <form onSubmit={handleGenerateSkill}>
                           <div className="tray">
                             <Prev onClick={prev} className="icon"/>
+                            <h3>Skill Summary</h3>
                             {skillInfo.playlistId ?  
-                            <button type='submit' className="generate-button">Generate <Plus className="icon-plus icon-plus--disabled"/></button> :
-                            <button disabled type='submit' className="generate-button">Generate<Plus className="icon-plus icon--active"/></button> }
+                            <button type='submit' className="generate-button">Add <Hammer className="icon-hammer"/></button> :
+                            <button disabled type='submit' className="generate-button">Add <Hammer className="icon-hammer"/></button> }
+                            
                           </div>
-                          <h3>Skill Summary</h3>
-                          {skillInfo.playlistId ? "Askill has been selected" : "Please select a playlist first!"}
+                          
+                          {skillInfo.playlistId ? <SkillCard skill={skillInfo} setSkill={setSkillInfo} notify={notify}/> : "Please select a playlist first!"}
                         </form>
                     )}
                     </div>

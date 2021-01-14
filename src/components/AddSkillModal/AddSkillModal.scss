@@ -80,3 +80,21 @@
     height: 500px;
     min-height: 200px;
 }
+
+.tray {
+    display: flex;
+    align-items: center;
+}
+
+.icon-hammer {
+    width: 2rem;
+    height: 2rem;
+}
+
+.generate-button {
+    border-radius: 8px;
+    padding: 0.5rem;
+    @include background-transition;
+    outline: none;
+    border: none;
+}

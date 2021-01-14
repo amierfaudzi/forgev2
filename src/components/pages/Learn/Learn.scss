@@ -1,15 +1,23 @@
 .learn {
-    background-color: salmon;
     height: calc(100vh - 5rem);
     width: 100vw;
+    display: flex;
+    flex-direction: column;
 
     &__controls {
         position: relative;
         width: 100%;
+        border: 2px solid red;
+        box-sizing: border-box;
+        flex: 1;
     }
 
     &__note {
         position: relative;
+        
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
 

@@ -30,7 +30,7 @@ export default function Learn() {
             <SlidingPanel
                 type={'bottom'}
                 isOpen={openPanel}
-                size={40}
+                size={30}
                 noBackdrop
             >
                 <div className="learn__note">

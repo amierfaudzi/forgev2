@@ -38,15 +38,6 @@ export default function Armory() {
         });
     }
 
-    const call = () => {
-
-        axios.get('https://jsonplaceholder.typicode.com/todos/1')
-        .then(res => {
-            console.log(res.data.title);
-            notify(res.data.title);
-        })
-    }
-
     const handleSkill = () => {
         history.push('/learn');
     }
@@ -66,14 +57,14 @@ export default function Armory() {
             <div className="armory__title">
                 This is the armory
 
-                <button onClick={toggleModal}>Modal</button>
+                <button onClick={()=>{notify("Toast")}}>Toast</button>
             </div>
 
             <HexagonWebtiki handleClick={handleSkill} skill={skill} toggleModal={toggleModal} isGrandKeep={isGrandKeep}/>
 
-            <AddSkillModal isVisible={isVisible} toggleModal={toggleModal} notify={call} searchedPlaylist={searchedPlaylist} setSearchPlaylist={setSearchPlaylist}/>
+            <AddSkillModal isVisible={isVisible} toggleModal={toggleModal} notify={notify} searchedPlaylist={searchedPlaylist} setSearchPlaylist={setSearchPlaylist}/>
 
-            
+            <ToastContainer/>
         </div>
     )
 }

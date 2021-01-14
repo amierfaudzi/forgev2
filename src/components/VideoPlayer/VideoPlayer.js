@@ -41,17 +41,19 @@ export default function VideoPlayer() {
     return (
         <section className="video-player">
             <div className="video-player__container">
-                <div className="video-player__info">
+                {/* <div className="video-player__info">
                     <h2>{playingVideo.title}</h2>
                     <p>{activePlaylist.skillName}</p>
                     <p>{activePlaylist.skillDescription}</p>
                     <p>This is video {playingVideo.position + 1} out of {activePlaylist.videoAmount}</p>
-                </div>
+                </div> */}
 
                 <ReactPlayer
                 url={currentUrl}
                 controls
                 onEnded={handleEnded}
+                width={`854px`}
+                height={`480px`}
                 />
             </div>
 
