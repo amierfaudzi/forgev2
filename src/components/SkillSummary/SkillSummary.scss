@@ -1,3 +1,6 @@
+// linking dependencies
+@use '../styles/variable' as *;
+
 .skillSummary {
     flex: 2;
     display: flex;
@@ -19,6 +22,15 @@
         height: 320px;
         object-fit: cover;
     }
+
+    &--dummy {
+        height: 320px;
+        width: 854px;
+        background-color: $gray-light;
+        border-radius: 14px;
+        border: dashed black 3px;
+        box-sizing: border-box;
+    }
 }
 
 .other-skills {
@@ -36,4 +48,13 @@
         object-fit: cover;
         width: 240px;
     }
+}
+
+.dummy-skill {
+    height: 300px;
+    width: 240px;
+    background-color: $gray-light;
+    border-radius: 14px;
+    border: dashed black 3px;
+    box-sizing: border-box;
 }

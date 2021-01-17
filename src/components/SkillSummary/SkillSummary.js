@@ -4,7 +4,8 @@ import axios from 'axios';
 
 export default function SkillSummary() {
 
-    let [skillData, setSkillData] = useState('')
+    let [skillData, setSkillData] = useState('');
+    const dummyArray = ['', '', '', ''];
 
     useEffect(() => {
         axios.get('/skills')
@@ -19,7 +20,7 @@ export default function SkillSummary() {
         return (
             <div className="skillSummary">
                 <div className="previously-watched">
-                    {skillData.map((data, index)=> {
+                    {skillData.length > 0 ? skillData.map((data, index)=> {
                         if(index == 0){
                             return (
                                 <div className="main-skill">
@@ -28,18 +29,37 @@ export default function SkillSummary() {
                                 </div>
                             )
                         } 
-                    })}
+                    }) : 
+                    <div className="main-skill main-skill--dummy">
+                    </div>
+                }
                 </div>
                 <div className="other-container">
-                    {skillData.map((data, index)=> {
-                        if(index > 0 && index < 4){
-                            return (
-                                <div className="other-skills">
-                                    <p>{data.title}</p>
-                                    <img className="other-skills__image" src={data.thumbnailUrl} alt=""/>
-                                </div>
-                            )
-                        } 
+                    { dummyArray.map((data, index)=> {
+                        // if(index > 0 && index < 4){
+                        //     return (
+                        //         <div className="other-skills">
+                        //             <p>{data.title}</p>
+                        //             <img className="other-skills__image" src={data.thumbnailUrl} alt=""/>
+                        //         </div>
+                        //     )
+                        // }
+                        if(index > 0 && index < 4) {
+                            if(skillData[index]){
+                                return (
+                                    <div className="other-skills">
+                                        <p>{data.title}</p>
+                                        <img className="other-skills__image" src={data.thumbnailUrl} alt=""/>
+                                    </div>
+                                )
+                            } else {
+                                return (
+                                    <div className="dummy-skill">
+
+                                    </div>
+                                )
+                            }
+                        }
                     })}
                 </div>
     
