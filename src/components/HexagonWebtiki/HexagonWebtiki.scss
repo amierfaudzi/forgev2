@@ -104,13 +104,13 @@
   .hexLink:hover h1, .hexLink:focus h1{
     -webkit-transform:translate3d(0,0,0);
         -ms-transform:translate3d(0,0,0);
-            transform:translate3d(0,8%,0);
+            transform:translate3d(0,0,0);
   }
 
   .hexLink:hover p, .hexLink:focus p{
     -webkit-transform:translate3d(0,0,0);
         -ms-transform:translate3d(0,0,0);
-            transform:translate3d(0,-8%,0);
+            transform:translate3d(0,0,0);
   }
   
   /*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/

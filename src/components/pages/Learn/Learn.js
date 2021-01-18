@@ -22,12 +22,13 @@ export default function Learn() {
     let [videoId, setVideoId] = useState(activePlaylist.videos[videoPosition].videoId);
 
     useEffect(() => {
-        console.log("This is from the learn")
-        axios.get('/note', {
-            videoId: videoId
-        })
-        .then(res => {console.log(res)})
-        .catch(err => console.log(err))
+        // // KIV till later
+        // console.log("This is from the learn")
+        // axios.get('/note', {
+        //     videoId: videoId
+        // })
+        // .then(res => {console.log(res)})
+        // .catch(err => console.log(err))
     }, [activePlaylist.currentVideo])
 
     return (
