@@ -6,7 +6,6 @@ import SkillGenerator from '../../SkillGenerator/SkillGenerator';
 import './Kiln.scss';
 import axios from 'axios';
 import SkillList from '../../SkillList/SkillList';
-import HexagonList from '../../HexagonList/HexagonList';
 
 export default function Kiln() {
 
@@ -32,7 +31,6 @@ export default function Kiln() {
                     <TabList>
                         <Tab>Add Skill</Tab>
                         <Tab>Forge skill</Tab>
-                        <Tab>Hexagon</Tab>
                     </TabList>
                 
                     <TabPanel>
@@ -44,9 +42,6 @@ export default function Kiln() {
                     {skillList ? skillList.map(skill=> {
                         return <SkillList key={skill.skillId} skill={skill}/>
                     }) : <h2>Add a skill!</h2>}
-                    </TabPanel>
-                    <TabPanel>
-                        <HexagonList/>
                     </TabPanel>
                 </Tabs>
     

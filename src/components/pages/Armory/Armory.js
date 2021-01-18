@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Armory.scss';
-import HexagonList from '../../HexagonList/HexagonList';
 import AddSkillModal from '../../AddSkillModal/AddSkillModal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

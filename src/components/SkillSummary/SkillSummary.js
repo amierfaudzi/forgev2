@@ -31,19 +31,12 @@ export default function SkillSummary() {
                         } 
                     }) : 
                     <div className="main-skill main-skill--dummy">
+                        <h3>Add a skill</h3>
                     </div>
                 }
                 </div>
                 <div className="other-container">
                     { dummyArray.map((data, index)=> {
-                        // if(index > 0 && index < 4){
-                        //     return (
-                        //         <div className="other-skills">
-                        //             <p>{data.title}</p>
-                        //             <img className="other-skills__image" src={data.thumbnailUrl} alt=""/>
-                        //         </div>
-                        //     )
-                        // }
                         if(index > 0 && index < 4) {
                             if(skillData[index]){
                                 return (
@@ -55,7 +48,7 @@ export default function SkillSummary() {
                             } else {
                                 return (
                                     <div className="dummy-skill">
-
+                                        <h4>Add a skill</h4>
                                     </div>
                                 )
                             }

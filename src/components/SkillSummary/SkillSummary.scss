@@ -30,6 +30,9 @@
         border-radius: 14px;
         border: dashed black 3px;
         box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -57,4 +60,7 @@
     border-radius: 14px;
     border: dashed black 3px;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
