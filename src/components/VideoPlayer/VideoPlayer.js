@@ -41,12 +41,6 @@ export default function VideoPlayer() {
     return (
         <section className="video-player">
             <div className="video-player__container">
-                {/* <div className="video-player__info">
-                    <h2>{playingVideo.title}</h2>
-                    <p>{activePlaylist.skillName}</p>
-                    <p>{activePlaylist.skillDescription}</p>
-                    <p>This is video {playingVideo.position + 1} out of {activePlaylist.videoAmount}</p>
-                </div> */}
 
                 <ReactPlayer
                 url={currentUrl}

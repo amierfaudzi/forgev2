@@ -4,7 +4,7 @@ import './Note.scss';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-export default function Note() {
+export default function Note({note, setNote}) {
 
     const debounce = (a,b,c) => {
         var d,e;
@@ -17,8 +17,6 @@ export default function Note() {
           return (clearTimeout(d),d=setTimeout(h,b),c&&!d&&(e=a.apply(f,g)),e)
         }
     }
-
-    let [note, setNote] = useState({noteContent: ''});
 
     const updateBody = async (value) => {
         console.log("THis is the note and note content", note);

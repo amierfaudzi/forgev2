@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Note from '../../Note/Note';
 import VideoPlayer from '../../VideoPlayer/VideoPlayer';
 import './Learn.scss';
@@ -8,6 +8,7 @@ import { ReactComponent as NotePad } from '../../../assets/icons/icons8-notepad.
 import { ReactComponent as X } from '../../../assets/icons/icons8-xamarin.svg';
 import { ReactComponent as Save } from '../../../assets/icons/icons8-save.svg';
 import { PlaylistContext } from '../../../contexts/PlaylistContext';
+import axios from 'axios';
 
 export default function Learn() {
 
@@ -16,6 +17,18 @@ export default function Learn() {
     console.log(activePlaylist)
 
     const [openPanel, setOpenPanel] = useState(false);
+    let [note, setNote] = useState({noteContent: ''});
+    let [videoPosition, setVideoPosition] = useState(activePlaylist.currentVideo)
+    let [videoId, setVideoId] = useState(activePlaylist.videos[videoPosition].videoId);
+
+    useEffect(() => {
+        console.log("This is from the learn")
+        axios.get('/note', {
+            videoId: videoId
+        })
+        .then(res => {console.log(res)})
+        .catch(err => console.log(err))
+    }, [activePlaylist.currentVideo])
 
     return (
         <div className="learn">
@@ -36,7 +49,7 @@ export default function Learn() {
                             <div className="controls-video--item">
                                 <img src={data.thumbnail} alt=""/>
                                 <p>{data.title}</p>
-                            </div>
+                            </div> 
                         )
                     })}
                 </div>
@@ -48,7 +61,7 @@ export default function Learn() {
                 noBackdrop
             >
                 <div className="learn__note">
-                    <Note/>
+                    <Note note={note} setNote={setNote}/>
                     <X className="icon-action" onClick={() => setOpenPanel(false)}/>
                     <Save className="icon-action icon-action--second"/>
                 </div>
