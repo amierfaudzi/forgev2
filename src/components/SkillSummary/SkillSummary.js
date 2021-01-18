@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './SkillSummary.scss';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 export default function SkillSummary() {
 
     let [skillData, setSkillData] = useState('');
     const dummyArray = ['', '', '', ''];
+    let history = useHistory();
 
     useEffect(() => {
         axios.get('/skills')
@@ -15,6 +17,10 @@ export default function SkillSummary() {
         })
         .catch(err => console.log(err))
     }, [])
+
+    const handleNewSkill = () => {
+        history.push('/armory');
+    }
 
     if(skillData) {
         return (
@@ -30,7 +36,7 @@ export default function SkillSummary() {
                             )
                         } 
                     }) : 
-                    <div className="main-skill main-skill--dummy">
+                    <div className="main-skill main-skill--dummy" onClick={handleNewSkill}>
                         <h3>Add a skill</h3>
                     </div>
                 }
@@ -47,7 +53,7 @@ export default function SkillSummary() {
                                 )
                             } else {
                                 return (
-                                    <div className="dummy-skill">
+                                    <div className="dummy-skill" onClick={handleNewSkill}>
                                         <h4>Add a skill</h4>
                                     </div>
                                 )
