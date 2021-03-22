@@ -14,6 +14,8 @@ The back end was built using Node + Express and the API was built as a REST API 
 The live site: https://forge-education.netlify.app/
 
 ## Future plans
-Right now there is no future plans to work on this website. I am proud with what I had produced over three short weeks using new libraries, new APIs, and the Firebase infrastructure. I will be working on other things
+Right now there is no future plans to work on this website. I am proud with what I had produced over three short weeks using new libraries, new APIs, and the Firebase infrastructure but this project requires a lot more resources for it to be what I intially envisioned it to be. Particularly it needed more thought on the whole user flow as well as data manipulation and management of the Youtube data API. I will be working on other things and keep on expanding my skill sets and thus I will bench this project.
+
+If you are interested in learning more about this project, feel free to email me at amier.faudzi@gmail.com
 
 
